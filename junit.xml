@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="64" failures="0" errors="0" time="2.282">
-  <testsuite name="utils/colorManipulator" errors="0" failures="0" skipped="0" timestamp="2021-09-18T05:10:50" time="1.865" tests="64">
-    <testcase classname="utils/colorManipulator destructureColor converts rgb color string to object with `type` and `value` keys" name="utils/colorManipulator destructureColor converts rgb color string to object with `type` and `value` keys" time="0.003">
+<testsuites name="jest tests" tests="64" failures="0" errors="0" time="2.172">
+  <testsuite name="utils/colorManipulator" errors="0" failures="0" skipped="0" timestamp="2021-09-18T05:25:02" time="1.83" tests="64">
+    <testcase classname="utils/colorManipulator destructureColor converts rgb color string to object with `type` and `value` keys" name="utils/colorManipulator destructureColor converts rgb color string to object with `type` and `value` keys" time="0.002">
     </testcase>
     <testcase classname="utils/colorManipulator destructureColor converts rgba color string to object with `type` and `value` keys" name="utils/colorManipulator destructureColor converts rgba color string to object with `type` and `value` keys" time="0.001">
     </testcase>
     <testcase classname="utils/colorManipulator destructureColor converts hsl color string to object with `type` and `value` keys" name="utils/colorManipulator destructureColor converts hsl color string to object with `type` and `value` keys" time="0.001">
     </testcase>
-    <testcase classname="utils/colorManipulator destructureColor converts hsla color string to object with `type` and `value` keys" name="utils/colorManipulator destructureColor converts hsla color string to object with `type` and `value` keys" time="0">
+    <testcase classname="utils/colorManipulator destructureColor converts hsla color string to object with `type` and `value` keys" name="utils/colorManipulator destructureColor converts hsla color string to object with `type` and `value` keys" time="0.002">
     </testcase>
     <testcase classname="utils/colorManipulator destructureColor converts CSS4 color space display-3 to object with `type,` `value,` and `colorSpace` keys" name="utils/colorManipulator destructureColor converts CSS4 color space display-3 to object with `type,` `value,` and `colorSpace` keys" time="0.001">
     </testcase>
@@ -15,13 +15,13 @@
     </testcase>
     <testcase classname="utils/colorManipulator destructureColor converts rgba hex color string to object with `type` and `value` keys" name="utils/colorManipulator destructureColor converts rgba hex color string to object with `type` and `value` keys" time="0.001">
     </testcase>
-    <testcase classname="utils/colorManipulator destructureColor throws error at non-existent color space" name="utils/colorManipulator destructureColor throws error at non-existent color space" time="0.019">
+    <testcase classname="utils/colorManipulator destructureColor throws error at non-existent color space" name="utils/colorManipulator destructureColor throws error at non-existent color space" time="0.024">
     </testcase>
     <testcase classname="utils/colorManipulator destructureColor throws error at non-existant color type" name="utils/colorManipulator destructureColor throws error at non-existant color type" time="0.001">
     </testcase>
-    <testcase classname="utils/colorManipulator destructureColor decomposed input should equal to decomposed output" name="utils/colorManipulator destructureColor decomposed input should equal to decomposed output" time="0">
+    <testcase classname="utils/colorManipulator destructureColor decomposed input should equal to decomposed output" name="utils/colorManipulator destructureColor decomposed input should equal to decomposed output" time="0.001">
     </testcase>
-    <testcase classname="utils/colorManipulator restructureColor converts decomposed rgb color object to string" name="utils/colorManipulator restructureColor converts decomposed rgb color object to string" time="0.001">
+    <testcase classname="utils/colorManipulator restructureColor converts decomposed rgb color object to string" name="utils/colorManipulator restructureColor converts decomposed rgb color object to string" time="0.002">
     </testcase>
     <testcase classname="utils/colorManipulator restructureColor converts decomposed rgba color object to string" name="utils/colorManipulator restructureColor converts decomposed rgba color object to string" time="0.001">
     </testcase>
@@ -31,13 +31,13 @@
     </testcase>
     <testcase classname="utils/colorManipulator restructureColor converts decomposed CSS4 color object to string" name="utils/colorManipulator restructureColor converts decomposed CSS4 color object to string" time="0.002">
     </testcase>
-    <testcase classname="utils/colorManipulator hexToRgb converts a short hex color to an rgb color` " name="utils/colorManipulator hexToRgb converts a short hex color to an rgb color` " time="0.002">
+    <testcase classname="utils/colorManipulator hexToRgb converts a short hex color to an rgb color` " name="utils/colorManipulator hexToRgb converts a short hex color to an rgb color` " time="0.001">
     </testcase>
-    <testcase classname="utils/colorManipulator hexToRgb converts a long hex color to an rgb color` " name="utils/colorManipulator hexToRgb converts a long hex color to an rgb color` " time="0.002">
+    <testcase classname="utils/colorManipulator hexToRgb converts a long hex color to an rgb color` " name="utils/colorManipulator hexToRgb converts a long hex color to an rgb color` " time="0.001">
     </testcase>
     <testcase classname="utils/colorManipulator hexToRgb converts a long alpha hex color to an argb color` " name="utils/colorManipulator hexToRgb converts a long alpha hex color to an argb color` " time="0.001">
     </testcase>
-    <testcase classname="utils/colorManipulator rgbToHex converts an rgb color to a hex color` " name="utils/colorManipulator rgbToHex converts an rgb color to a hex color` " time="0.002">
+    <testcase classname="utils/colorManipulator rgbToHex converts an rgb color to a hex color` " name="utils/colorManipulator rgbToHex converts an rgb color to a hex color` " time="0.001">
     </testcase>
     <testcase classname="utils/colorManipulator rgbToHex converts an rgba color to a hex color` " name="utils/colorManipulator rgbToHex converts an rgba color to a hex color` " time="0.001">
     </testcase>
@@ -47,63 +47,63 @@
     </testcase>
     <testcase classname="utils/colorManipulator hslToRgb converts an hsla color to an rgba color` " name="utils/colorManipulator hslToRgb converts an hsla color to an rgba color` " time="0.002">
     </testcase>
-    <testcase classname="utils/colorManipulator hslToRgb allow to convert values only" name="utils/colorManipulator hslToRgb allow to convert values only" time="0.002">
+    <testcase classname="utils/colorManipulator hslToRgb allow to convert values only" name="utils/colorManipulator hslToRgb allow to convert values only" time="0.001">
     </testcase>
-    <testcase classname="utils/colorManipulator getLuminance returns a valid luminance for rgb black" name="utils/colorManipulator getLuminance returns a valid luminance for rgb black" time="0.004">
+    <testcase classname="utils/colorManipulator getLuminance returns a valid luminance for rgb black" name="utils/colorManipulator getLuminance returns a valid luminance for rgb black" time="0.002">
     </testcase>
-    <testcase classname="utils/colorManipulator getLuminance returns a valid luminance for rgb white" name="utils/colorManipulator getLuminance returns a valid luminance for rgb white" time="0.002">
+    <testcase classname="utils/colorManipulator getLuminance returns a valid luminance for rgb white" name="utils/colorManipulator getLuminance returns a valid luminance for rgb white" time="0.001">
     </testcase>
     <testcase classname="utils/colorManipulator getLuminance returns a valid luminance for rgb mid-grey" name="utils/colorManipulator getLuminance returns a valid luminance for rgb mid-grey" time="0.001">
     </testcase>
     <testcase classname="utils/colorManipulator getLuminance returns a valid luminance for an rgb color" name="utils/colorManipulator getLuminance returns a valid luminance for an rgb color" time="0.001">
     </testcase>
-    <testcase classname="utils/colorManipulator getLuminance returns a valid luminance from an hsl color" name="utils/colorManipulator getLuminance returns a valid luminance from an hsl color" time="0.002">
+    <testcase classname="utils/colorManipulator getLuminance returns a valid luminance from an hsl color" name="utils/colorManipulator getLuminance returns a valid luminance from an hsl color" time="0.001">
     </testcase>
-    <testcase classname="utils/colorManipulator getLuminance returns an equal luminance for the same color in different formats" name="utils/colorManipulator getLuminance returns an equal luminance for the same color in different formats" time="0.002">
+    <testcase classname="utils/colorManipulator getLuminance returns an equal luminance for the same color in different formats" name="utils/colorManipulator getLuminance returns an equal luminance for the same color in different formats" time="0.001">
     </testcase>
-    <testcase classname="utils/colorManipulator getLuminance returns a valid luminance from an CSS4 color" name="utils/colorManipulator getLuminance returns a valid luminance from an CSS4 color" time="0.003">
+    <testcase classname="utils/colorManipulator getLuminance returns a valid luminance from an CSS4 color" name="utils/colorManipulator getLuminance returns a valid luminance from an CSS4 color" time="0.001">
     </testcase>
-    <testcase classname="utils/colorManipulator getLuminance throw on invalid colors" name="utils/colorManipulator getLuminance throw on invalid colors" time="0.004">
+    <testcase classname="utils/colorManipulator getLuminance throw on invalid colors" name="utils/colorManipulator getLuminance throw on invalid colors" time="0.001">
     </testcase>
-    <testcase classname="utils/colorManipulator contrastText lightens a dark rgb color" name="utils/colorManipulator contrastText lightens a dark rgb color" time="0.003">
+    <testcase classname="utils/colorManipulator contrastText lightens a dark rgb color" name="utils/colorManipulator contrastText lightens a dark rgb color" time="0.001">
     </testcase>
-    <testcase classname="utils/colorManipulator contrastText darkens a light rgb color" name="utils/colorManipulator contrastText darkens a light rgb color" time="0.003">
+    <testcase classname="utils/colorManipulator contrastText darkens a light rgb color" name="utils/colorManipulator contrastText darkens a light rgb color" time="0.001">
     </testcase>
-    <testcase classname="utils/colorManipulator contrastText lightens a dark CSS4 color" name="utils/colorManipulator contrastText lightens a dark CSS4 color" time="0.002">
+    <testcase classname="utils/colorManipulator contrastText lightens a dark CSS4 color" name="utils/colorManipulator contrastText lightens a dark CSS4 color" time="0.001">
     </testcase>
-    <testcase classname="utils/colorManipulator contrastText darkens a light CSS4 color" name="utils/colorManipulator contrastText darkens a light CSS4 color" time="0.002">
+    <testcase classname="utils/colorManipulator contrastText darkens a light CSS4 color" name="utils/colorManipulator contrastText darkens a light CSS4 color" time="0.001">
     </testcase>
-    <testcase classname="utils/colorManipulator darkenColor doesn&apos;t modify rgb black" name="utils/colorManipulator darkenColor doesn&apos;t modify rgb black" time="0.002">
+    <testcase classname="utils/colorManipulator darkenColor doesn&apos;t modify rgb black" name="utils/colorManipulator darkenColor doesn&apos;t modify rgb black" time="0.001">
     </testcase>
-    <testcase classname="utils/colorManipulator darkenColor doesn&apos;t overshoot if an above-range coefficient is supplied" name="utils/colorManipulator darkenColor doesn&apos;t overshoot if an above-range coefficient is supplied" time="0.019">
+    <testcase classname="utils/colorManipulator darkenColor doesn&apos;t overshoot if an above-range coefficient is supplied" name="utils/colorManipulator darkenColor doesn&apos;t overshoot if an above-range coefficient is supplied" time="0.003">
     </testcase>
-    <testcase classname="utils/colorManipulator darkenColor doesn&apos;t overshoot if a below-range coefficient is supplied" name="utils/colorManipulator darkenColor doesn&apos;t overshoot if a below-range coefficient is supplied" time="0.003">
+    <testcase classname="utils/colorManipulator darkenColor doesn&apos;t overshoot if a below-range coefficient is supplied" name="utils/colorManipulator darkenColor doesn&apos;t overshoot if a below-range coefficient is supplied" time="0.001">
     </testcase>
-    <testcase classname="utils/colorManipulator darkenColor darkens rgb white to black when coefficient is 1" name="utils/colorManipulator darkenColor darkens rgb white to black when coefficient is 1" time="0.002">
+    <testcase classname="utils/colorManipulator darkenColor darkens rgb white to black when coefficient is 1" name="utils/colorManipulator darkenColor darkens rgb white to black when coefficient is 1" time="0.001">
     </testcase>
-    <testcase classname="utils/colorManipulator darkenColor retains the alpha value in an rgba color" name="utils/colorManipulator darkenColor retains the alpha value in an rgba color" time="0.004">
+    <testcase classname="utils/colorManipulator darkenColor retains the alpha value in an rgba color" name="utils/colorManipulator darkenColor retains the alpha value in an rgba color" time="0">
     </testcase>
-    <testcase classname="utils/colorManipulator darkenColor darkens rgb white by 10% when coefficient is 0.1" name="utils/colorManipulator darkenColor darkens rgb white by 10% when coefficient is 0.1" time="0.003">
+    <testcase classname="utils/colorManipulator darkenColor darkens rgb white by 10% when coefficient is 0.1" name="utils/colorManipulator darkenColor darkens rgb white by 10% when coefficient is 0.1" time="0">
     </testcase>
-    <testcase classname="utils/colorManipulator darkenColor darkens rgb red by 50% when coefficient is 0.5" name="utils/colorManipulator darkenColor darkens rgb red by 50% when coefficient is 0.5" time="0.003">
+    <testcase classname="utils/colorManipulator darkenColor darkens rgb red by 50% when coefficient is 0.5" name="utils/colorManipulator darkenColor darkens rgb red by 50% when coefficient is 0.5" time="0">
     </testcase>
-    <testcase classname="utils/colorManipulator darkenColor darkens rgb grey by 50% when coefficient is 0.5" name="utils/colorManipulator darkenColor darkens rgb grey by 50% when coefficient is 0.5" time="0.003">
+    <testcase classname="utils/colorManipulator darkenColor darkens rgb grey by 50% when coefficient is 0.5" name="utils/colorManipulator darkenColor darkens rgb grey by 50% when coefficient is 0.5" time="0.001">
     </testcase>
-    <testcase classname="utils/colorManipulator darkenColor doesn&apos;t modify rgb colors when coefficient is 0" name="utils/colorManipulator darkenColor doesn&apos;t modify rgb colors when coefficient is 0" time="0.002">
+    <testcase classname="utils/colorManipulator darkenColor doesn&apos;t modify rgb colors when coefficient is 0" name="utils/colorManipulator darkenColor doesn&apos;t modify rgb colors when coefficient is 0" time="0.001">
     </testcase>
-    <testcase classname="utils/colorManipulator darkenColor darkens hsl red by 50% when coefficient is 0.5" name="utils/colorManipulator darkenColor darkens hsl red by 50% when coefficient is 0.5" time="0.002">
+    <testcase classname="utils/colorManipulator darkenColor darkens hsl red by 50% when coefficient is 0.5" name="utils/colorManipulator darkenColor darkens hsl red by 50% when coefficient is 0.5" time="0.001">
     </testcase>
-    <testcase classname="utils/colorManipulator darkenColor doesn&apos;t modify hsl colors when coefficient is 0" name="utils/colorManipulator darkenColor doesn&apos;t modify hsl colors when coefficient is 0" time="0.003">
+    <testcase classname="utils/colorManipulator darkenColor doesn&apos;t modify hsl colors when coefficient is 0" name="utils/colorManipulator darkenColor doesn&apos;t modify hsl colors when coefficient is 0" time="0.001">
     </testcase>
-    <testcase classname="utils/colorManipulator darkenColor doesn&apos;t modify hsl colors when l is 0%" name="utils/colorManipulator darkenColor doesn&apos;t modify hsl colors when l is 0%" time="0.004">
+    <testcase classname="utils/colorManipulator darkenColor doesn&apos;t modify hsl colors when l is 0%" name="utils/colorManipulator darkenColor doesn&apos;t modify hsl colors when l is 0%" time="0">
     </testcase>
-    <testcase classname="utils/colorManipulator darkenColor darkens CSS4 color red by 50% when coefficient is 0.5" name="utils/colorManipulator darkenColor darkens CSS4 color red by 50% when coefficient is 0.5" time="0.003">
+    <testcase classname="utils/colorManipulator darkenColor darkens CSS4 color red by 50% when coefficient is 0.5" name="utils/colorManipulator darkenColor darkens CSS4 color red by 50% when coefficient is 0.5" time="0">
     </testcase>
-    <testcase classname="utils/colorManipulator darkenColor doesn&apos;t modify CSS4 color when coefficient is 0" name="utils/colorManipulator darkenColor doesn&apos;t modify CSS4 color when coefficient is 0" time="0.003">
+    <testcase classname="utils/colorManipulator darkenColor doesn&apos;t modify CSS4 color when coefficient is 0" name="utils/colorManipulator darkenColor doesn&apos;t modify CSS4 color when coefficient is 0" time="0">
     </testcase>
-    <testcase classname="utils/colorManipulator lightenColor doesn&apos;t modify rgb white" name="utils/colorManipulator lightenColor doesn&apos;t modify rgb white" time="0.003">
+    <testcase classname="utils/colorManipulator lightenColor doesn&apos;t modify rgb white" name="utils/colorManipulator lightenColor doesn&apos;t modify rgb white" time="0.001">
     </testcase>
-    <testcase classname="utils/colorManipulator lightenColor doesn&apos;t overshoot if an above-range coefficient is supplied" name="utils/colorManipulator lightenColor doesn&apos;t overshoot if an above-range coefficient is supplied" time="0.002">
+    <testcase classname="utils/colorManipulator lightenColor doesn&apos;t overshoot if an above-range coefficient is supplied" name="utils/colorManipulator lightenColor doesn&apos;t overshoot if an above-range coefficient is supplied" time="0.001">
     </testcase>
     <testcase classname="utils/colorManipulator lightenColor doesn&apos;t overshoot if a below-range coefficient is supplied" name="utils/colorManipulator lightenColor doesn&apos;t overshoot if a below-range coefficient is supplied" time="0.001">
     </testcase>
@@ -119,11 +119,11 @@
     </testcase>
     <testcase classname="utils/colorManipulator lightenColor doesn&apos;t modify rgb colors when coefficient is 0" name="utils/colorManipulator lightenColor doesn&apos;t modify rgb colors when coefficient is 0" time="0.001">
     </testcase>
-    <testcase classname="utils/colorManipulator lightenColor lightens hsl red by 50% when coefficient is 0.5" name="utils/colorManipulator lightenColor lightens hsl red by 50% when coefficient is 0.5" time="0.001">
+    <testcase classname="utils/colorManipulator lightenColor lightens hsl red by 50% when coefficient is 0.5" name="utils/colorManipulator lightenColor lightens hsl red by 50% when coefficient is 0.5" time="0">
     </testcase>
-    <testcase classname="utils/colorManipulator lightenColor doesn&apos;t modify hsl colors when coefficient is 0" name="utils/colorManipulator lightenColor doesn&apos;t modify hsl colors when coefficient is 0" time="0.001">
+    <testcase classname="utils/colorManipulator lightenColor doesn&apos;t modify hsl colors when coefficient is 0" name="utils/colorManipulator lightenColor doesn&apos;t modify hsl colors when coefficient is 0" time="0">
     </testcase>
-    <testcase classname="utils/colorManipulator lightenColor doesn&apos;t modify hsl colors when `l` is 100%" name="utils/colorManipulator lightenColor doesn&apos;t modify hsl colors when `l` is 100%" time="0.002">
+    <testcase classname="utils/colorManipulator lightenColor doesn&apos;t modify hsl colors when `l` is 100%" name="utils/colorManipulator lightenColor doesn&apos;t modify hsl colors when `l` is 100%" time="0.001">
     </testcase>
     <testcase classname="utils/colorManipulator lightenColor lightens CSS4 color red by 50% when coefficient is 0.5" name="utils/colorManipulator lightenColor lightens CSS4 color red by 50% when coefficient is 0.5" time="0.001">
     </testcase>

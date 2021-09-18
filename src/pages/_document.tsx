@@ -1,3 +1,4 @@
+import { GlobalReset } from '@/utils/UI';
 import Document, { DocumentContext } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 
@@ -10,7 +11,12 @@ export default class MyDocument extends Document {
       ctx.renderPage = () =>
         originalRenderPage({
           enhanceApp: (App: any) => (props: any) =>
-            sheet.collectStyles(<App {...props} />),
+            sheet.collectStyles(
+              <>
+                <GlobalReset />
+                <App {...props} />
+              </>,
+            ),
         });
 
       const initialProps = await Document.getInitialProps(ctx);
