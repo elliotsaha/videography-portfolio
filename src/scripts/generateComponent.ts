@@ -11,7 +11,7 @@ if (!args[0]) {
 
 const folder = args[0];
 
-const folderExt = ['.tsx', '.test.tsx', '.stories.tsx'];
+const folderExt = ['.tsx', '.test.tsx'];
 
 const folderPath = `${rootDir}/${folder}`;
 if (fs.existsSync(`${folderPath}/${folder}${folderExt[0]}`)) {

@@ -32,25 +32,26 @@ export const GlobalTheme = {
     background: '#18191A',
   },
   fonts: {
-    title: 'Bebas Neue, Sans-Serif',
-    body: 'Roboto, Sans-Serif',
+    title: 'Oswald, Sans-Serif',
+    body: 'Inter, Sans-Serif',
   },
   fontWeights: {},
   lineHeights: {},
   letterSpacings: {},
   sizes: {
-    sm: '544px',
-    md: '768px',
-    lg: '1012px',
-    xlg: '1280px',
+    max: '100%',
   },
-  borders: {},
+  borders: ['0.2rem solid'],
   borderWidths: {},
   borderStyles: {},
   breakpoints: ['544px', '768px', '1012px', '1280px'],
-  radii: {},
+  radii: ['0.25rem', '0.5rem', '1rem', '50rem'],
   shadows: {},
   zIndices: {},
+  transition: `-webkit-transition: all 0.15s ease-in-out;
+               -moz-transition: all 0.15s ease-in-out;
+               -ms-transition: all 0.15s ease-in-out;
+               -o-transition: all 0.15s ease-in-out;`,
 };
 
 export const GlobalReset = createGlobalStyle`

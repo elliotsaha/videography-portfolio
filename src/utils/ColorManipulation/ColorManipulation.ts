@@ -1,3 +1,5 @@
+import { GlobalTheme } from '@/utils/UI';
+
 type StringColor = string;
 
 interface DestructuredColor {
@@ -7,6 +9,8 @@ interface DestructuredColor {
 }
 
 type AnyTypeColor = StringColor | DestructuredColor;
+
+type ThemeColor = 'primary' | 'text' | 'background';
 
 // allows value to only be in the range  [min, max]
 const clamp = (inputVal: number, min = 0, max = 1): number =>
@@ -71,7 +75,7 @@ export const destructureColor = (color: AnyTypeColor): DestructuredColor => {
   let possibleTypes = ['rgb', 'rgba', 'hsl', 'hsla', 'color'];
   if (!includesString(possibleTypes, type)) {
     throw new Error(
-      'Theory-UI only supports these color formats: hex, rgb(), rgba(), hsl(), hsla(), color()',
+      'destructureColor only supports these color formats: hex, rgb(), rgba(), hsl(), hsla(), color()',
     );
   }
 
@@ -109,7 +113,7 @@ export const destructureColor = (color: AnyTypeColor): DestructuredColor => {
 
     if (!includesString(possibleTypes, colorSpace as string)) {
       throw new Error(
-        'Theory-UI only supports these color space formats: srgb, display-p3, a98-rgb, prophoto-rgb, rec-2020',
+        'destructureColor only supports these color space formats: srgb, display-p3, a98-rgb, prophoto-rgb, rec-2020',
       );
     }
   } else {
@@ -232,7 +236,14 @@ export const getLuminance = (color: AnyTypeColor): number => {
 export const lightenColor = (
   color: AnyTypeColor,
   coefficient: number,
+  themeColor = false,
 ): StringColor => {
+  // represents a color in theme.colors
+  if (themeColor) {
+    const property = GlobalTheme.colors[color as ThemeColor];
+    return lightenColor(property, coefficient);
+  }
+
   color = destructureColor(color);
   coefficient = clamp(coefficient);
 
@@ -254,7 +265,14 @@ export const lightenColor = (
 export const darkenColor = (
   color: AnyTypeColor,
   coefficient: number,
+  themeColor = false,
 ): StringColor => {
+  // represents a color in theme.colors
+  if (themeColor) {
+    const property = GlobalTheme.colors[color as ThemeColor];
+    return darkenColor(property, coefficient);
+  }
+
   color = destructureColor(color);
   coefficient = clamp(coefficient);
 
@@ -271,6 +289,17 @@ export const darkenColor = (
   return restructureColor(color);
 };
 
-export const contrastText = (color: AnyTypeColor): StringColor =>
+export const contrastText = (
+  color: AnyTypeColor,
+  themeColor = false,
+): StringColor => {
+  // represents a color in theme.colors
+  if (themeColor) {
+    const property = GlobalTheme.colors[color as ThemeColor];
+    return contrastText(property);
+  }
   // return white text with dark color input & black text with light color input
-  getLuminance(color) > 0.5 ? darkenColor(color, 1) : lightenColor(color, 1);
+  return getLuminance(color) > 0.5
+    ? darkenColor(color, 1)
+    : lightenColor(color, 1);
+};
