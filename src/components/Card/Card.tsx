@@ -11,6 +11,8 @@ export interface CardProps {
 const CardRoot = styled.div`
   ${css({
     border: '0',
+    borderRadius: '1',
+    borderColor: 'primary',
   })}
 `;
 

@@ -1,5 +1,7 @@
-import { Layout, Header, Button, Card } from '@/components';
+import { Layout, Header, Button, Flex } from '@/components';
 import styled from 'styled-components';
+import Image from 'next/image';
+import css from '@styled-system/css';
 
 const AboveFold = styled.div`
   position: relative;
@@ -35,10 +37,41 @@ const AboveFoldCTA = styled.div`
   text-align: center;
 `;
 
-const CardSection = styled.div`
+const BelowFold = styled.div`
+  ${css({
+    bg: 'background',
+  })}
   position: relative;
-  background: black;
   padding: 5rem;
+  padding-top: 7.5rem;
+  display: flex;
+  justify-content: center;
+`;
+
+const HeadshotContainer = styled.div`
+  ${css({
+    borderRadius: '2',
+  })}
+  overflow: hidden;
+  position: relative;
+  width: 30rem;
+  height: 45rem;
+  margin-right: 7.5rem;
+  & > img {
+    object-fit: cover;
+  }
+`;
+
+const HeadshotPara = styled.p`
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+  ${css({
+    color: 'text',
+  })}
+  max-width: 30rem;
+  ${css({
+    fontFamily: 'body',
+  })}
 `;
 
 const Home = () => (
@@ -60,11 +93,55 @@ const Home = () => (
       <CoverVideo src="/AboveFold.mp4" muted loop autoPlay />
     </AboveFold>
 
-    <CardSection>
-      <Card header="Hello">
-        awdwadwada wdawdwad awd aw daw dawd awd aw dawd
-      </Card>
-    </CardSection>
+    <BelowFold>
+      <Flex justifyItems="center" alignItems="start">
+        <HeadshotContainer>
+          <Image
+            src="/Headshot.jpg"
+            alt="Turni Saha Headshot"
+            layout="fill"
+            objectFit="cover"
+          />
+        </HeadshotContainer>
+        <Flex flexDirection="column">
+          <Header as="h2" uppercase color="text" mt="-0.5rem">
+            Hi, My name is Turni
+          </Header>
+          <HeadshotPara>
+            With 4+ years of experience in the video/film industry, I have
+            extensive experience in working with various clients and delivering
+            various forms of video content (Narrative doc piece, short form
+            social media content, music videos, etc.)
+            <br />
+            <br />
+            Looking to work with clients to produce the best quality content!
+            Whether you need quick one-off projects or looking build a long term
+            relationship, I am ready to create the best work for you!
+            <br />
+            <br />
+            <Flex pb="1rem" alignItems="start">
+              <div>
+                <Header as="h3" render="h4" uppercase color="primary">
+                  Camera
+                </Header>
+                Black Magic Pocket Cinema 6k
+              </div>
+              <div>
+                <Header as="h3" render="h4" uppercase color="primary">
+                  Software
+                </Header>
+                Final Cut Pro X + Davinci Resolve
+              </div>
+            </Flex>
+            <Header as="h3" render="h4" uppercase color="primary">
+              Experience
+            </Header>
+            Digital Video | Video Production | Video Editing | Short Form Video
+            | Promotional Videos
+          </HeadshotPara>
+        </Flex>
+      </Flex>
+    </BelowFold>
   </Layout>
 );
 

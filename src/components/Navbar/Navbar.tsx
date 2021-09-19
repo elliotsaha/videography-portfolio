@@ -15,14 +15,18 @@ const NavbarRoot = styled.div<{ scroll: boolean }>`
   position: fixed;
   padding-top: 1rem;
   display: flex;
-  color: white;
+  ${css({
+    color: 'text',
+  })}
   z-index: 9999;
   justify-content: space-between;
   align-items: center;
   font-weight: 500;
   & > div:nth-child(1) > a {
     text-decoration: none;
-    color: white;
+    ${css({
+      color: 'text',
+    })}
     text-transform: uppercase;
     ${css({
       fontFamily: 'title',
@@ -33,9 +37,9 @@ const NavbarRoot = styled.div<{ scroll: boolean }>`
   ${(props) =>
     props.scroll &&
     css({
-      pt: '0.2rem',
-      pb: '0.6rem',
-      bg: 'black',
+      pt: '0.65rem',
+      pb: '0.65rem',
+      bg: 'background',
     })}
 `;
 
@@ -46,9 +50,9 @@ const LinkSection = styled.div`
     margin-right: 3rem;
     margin-left: 3rem;
     text-decoration: none;
-    color: white;
     text-transform: uppercase;
     ${css({
+      color: 'text',
       fontFamily: 'title',
     })}
     padding-bottom: 0.5rem;
@@ -95,7 +99,9 @@ const Navbar = () => {
           <Link href="/">About</Link>
         </LinkSection>
         <Box pr="3rem">
-          <Button variant="outline">Contact</Button>
+          <Button variant="outline" pb="1.7rem">
+            Contact
+          </Button>
         </Box>
       </NavbarRoot>
     </Wrapper>

@@ -29,7 +29,7 @@ export const GlobalTheme = {
   colors: {
     primary: '#FF5A60',
     text: '#F5F5F5',
-    background: '#18191A',
+    background: '#0A0A0A',
   },
   fonts: {
     title: 'Oswald, Sans-Serif',
