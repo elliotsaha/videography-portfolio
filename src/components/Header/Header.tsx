@@ -23,6 +23,7 @@ export interface HeaderProps
     TypographyProps,
     LayoutProps {
   children?: React.ReactNode;
+  uppercase?: boolean;
   as?: React.ElementType | string;
   // used for styling as another heading element. e.g. h1 element in dom styled as an h3 element
   render?: React.ElementType | string;
@@ -63,13 +64,14 @@ const HeaderRoot = styled.h1<HeaderProps>`
   ${typography}
   ${layout}
   ${color}
+  text-transform: ${(props) => (props.uppercase ? 'uppercase' : 'none')};
 `;
 
 const Header = React.forwardRef(
   (props: HeaderProps, ref: React.Ref<HTMLHeadingElement>): JSX.Element => {
-    const { children, as = 'h1', ...other } = props;
+    const { children, as = 'h1', uppercase = false, ...other } = props;
     return (
-      <HeaderRoot ref={ref} as={as} {...other}>
+      <HeaderRoot ref={ref} as={as} uppercase={uppercase} {...other}>
         {children}
       </HeaderRoot>
     );

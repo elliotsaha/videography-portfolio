@@ -27,7 +27,7 @@ export const GlobalTheme = {
     '3rem',
   ],
   colors: {
-    primary: '#388EA9',
+    primary: '#FF5A60',
     text: '#F5F5F5',
     background: '#18191A',
   },

@@ -1,10 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import {
-  contrastText,
-  darkenColor,
-  lightenColor,
-} from '@/utils/ColorManipulation';
+import { contrastText, darkenColor } from '@/utils/ColorManipulation';
 import {
   space,
   SpaceProps,
@@ -75,7 +71,7 @@ const ButtonRoot = styled.button<ButtonProps>`
         color: contrastText('primary', true),
         border: '0',
         borderColor: 'primary',
-        borderRadius: '0',
+        borderRadius: '3',
         '&:hover': {
           bg: darkenColor('primary', 0.2, true),
           borderColor: darkenColor('primary', 0.2, true),
@@ -90,14 +86,14 @@ const ButtonRoot = styled.button<ButtonProps>`
         color: 'primary',
         border: '0',
         borderColor: 'primary',
-        borderRadius: '0',
+        borderRadius: '3',
         '&:hover': {
-          bg: lightenColor('primary', 0.925, true),
+          color: darkenColor('primary', 0.15, true),
+          borderColor: darkenColor('primary', 0.15, true),
         },
         '&:active': {
-          bg: lightenColor('primary', 0.8575, true),
-          color: darkenColor('primary', 0.1, true),
-          borderColor: darkenColor('primary', 0.1, true),
+          color: darkenColor('primary', 0.25, true),
+          borderColor: darkenColor('primary', 0.25, true),
         },
       },
     },
