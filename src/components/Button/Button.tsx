@@ -28,9 +28,7 @@ export interface ButtonProps
   children?: React.ReactNode;
 }
 
-const ButtonRoot = styled.button<
-  ButtonProps & SpaceProps & LayoutProps & TypographyProps
->`
+const ButtonRoot = styled.button<ButtonProps>`
   border: none;
   height: 3.25rem;
   width: auto;

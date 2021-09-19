@@ -1,15 +1,13 @@
 import Button from '@/components/Button';
+import Header from '@/components/Header';
 import Layout from '@/components/Layout';
 
 const Home = () => (
   <Layout>
-    <div style={{ display: 'flex', gap: '2rem' }}>
-      <Button size="sm">Hello</Button>
-      <Button size="md">Hello</Button>
-      <Button size="lg" variant="outline">
-        Hello
-      </Button>
-    </div>
+    <Header>TITLE</Header>
+    <Button onClick={() => console.log('a')} size="lg">
+      Hello
+    </Button>
   </Layout>
 );
 
