@@ -21,6 +21,7 @@ export interface ButtonProps
   variant?: 'solid' | 'outline' | 'text';
   color?: string;
   size?: 'sm' | 'md' | 'lg' | 'max';
+  pill?: boolean;
   children?: React.ReactNode;
 }
 
@@ -32,6 +33,8 @@ const ButtonRoot = styled.button<ButtonProps>`
   text-transform: uppercase;
   font-weight: 500;
   cursor: pointer;
+  border-radius: ${(props) =>
+    props.pill ? props.theme.radii[3] : props.theme.radii[0]};
   ${({ theme }) => theme.transition};
   &:hover: {
     ${({ theme }) => theme.transition};
@@ -71,7 +74,6 @@ const ButtonRoot = styled.button<ButtonProps>`
         color: contrastText('primary', true),
         border: '0',
         borderColor: 'primary',
-        borderRadius: '3',
         '&:hover': {
           bg: darkenColor('primary', 0.2, true),
           borderColor: darkenColor('primary', 0.2, true),
@@ -86,7 +88,6 @@ const ButtonRoot = styled.button<ButtonProps>`
         color: 'primary',
         border: '0',
         borderColor: 'primary',
-        borderRadius: '3',
         '&:hover': {
           color: darkenColor('primary', 0.15, true),
           borderColor: darkenColor('primary', 0.15, true),
@@ -109,6 +110,7 @@ const Button = React.forwardRef(
       variant = 'solid',
       color = 'primary',
       size = 'md',
+      pill = false,
       children,
       ...other
     } = props;
@@ -119,6 +121,7 @@ const Button = React.forwardRef(
         variant={variant}
         color={color}
         size={size}
+        pill={pill}
         {...other}
       >
         {children}

@@ -1,4 +1,4 @@
-import { Layout, Header, Button, Flex } from '@/components';
+import { Layout, Header, Button, Flex, Carousel, Box } from '@/components';
 import styled from 'styled-components';
 import Image from 'next/image';
 import css from '@styled-system/css';
@@ -37,10 +37,13 @@ const AboveFoldCTA = styled.div`
   text-align: center;
 `;
 
-const BelowFold = styled.div`
+const BackgroundEl = styled.div`
   ${css({
     bg: 'background',
   })}
+`;
+
+const BelowFold = styled.div`
   position: relative;
   padding: 5rem;
   padding-top: 7.5rem;
@@ -74,75 +77,102 @@ const HeadshotPara = styled.p`
   })}
 `;
 
-const Home = () => (
-  <Layout>
-    <AboveFold>
-      <Overlay>
-        <AboveFoldCTA>
-          <Header uppercase fontSize="10rem">
-            Turni Saha
-          </Header>
-          <Header uppercase as="h2" render="h4" mt="-5rem">
-            Videographer | Producer | Creator
-          </Header>
-          <Button variant="outline" size="lg" mt="1rem">
-            Get In Touch
-          </Button>
-        </AboveFoldCTA>
-      </Overlay>
-      <CoverVideo src="/AboveFold.mp4" muted loop autoPlay />
-    </AboveFold>
+const Home = () => {
+  // youtube video IDs
+  const videoIDs = [
+    'OWKj5xSlR80',
+    'HvQT3Hl44qE',
+    '4ilPPFw5owE',
+    'ed56xTQ2JT0',
+    'Yv1Ui_Y3Ryw',
+    'm-HKKy2sLrs',
+    'QSnU671Js-c',
+    'GNEO5WfKcYI',
+    'bLK4KanWTRs',
+    'fGtFW50TpZA',
+    'XJgWxru0EQo',
+    '32hsGWID9Ug',
+  ];
 
-    <BelowFold>
-      <Flex justifyItems="center" alignItems="start">
-        <HeadshotContainer>
-          <Image
-            src="/Headshot.jpg"
-            alt="Turni Saha Headshot"
-            layout="fill"
-            objectFit="cover"
-          />
-        </HeadshotContainer>
-        <Flex flexDirection="column">
-          <Header as="h2" uppercase color="text" mt="-0.5rem">
-            Hi, My name is Turni
-          </Header>
-          <HeadshotPara>
-            With 4+ years of experience in the video/film industry, I have
-            extensive experience in working with various clients and delivering
-            various forms of video content (Narrative doc piece, short form
-            social media content, music videos, etc.)
-            <br />
-            <br />
-            Looking to work with clients to produce the best quality content!
-            Whether you need quick one-off projects or looking build a long term
-            relationship, I am ready to create the best work for you!
-            <br />
-            <br />
-            <Flex pb="1rem" alignItems="start">
-              <div>
-                <Header as="h3" render="h4" uppercase color="primary">
-                  Camera
-                </Header>
-                Black Magic Pocket Cinema 6k
-              </div>
-              <div>
-                <Header as="h3" render="h4" uppercase color="primary">
-                  Software
-                </Header>
-                Final Cut Pro X + Davinci Resolve
-              </div>
-            </Flex>
-            <Header as="h3" render="h4" uppercase color="primary">
-              Experience
+  return (
+    <Layout>
+      <AboveFold>
+        <Overlay>
+          <AboveFoldCTA>
+            <Header uppercase fontSize="10rem">
+              Turni Saha
             </Header>
-            Digital Video | Video Production | Video Editing | Short Form Video
-            | Promotional Videos
-          </HeadshotPara>
-        </Flex>
-      </Flex>
-    </BelowFold>
-  </Layout>
-);
+            <Header uppercase as="h2" render="h4" mt="-5rem">
+              Videographer | Producer | Creator
+            </Header>
+            <Button variant="outline" size="lg" mt="1rem">
+              Get In Touch
+            </Button>
+          </AboveFoldCTA>
+        </Overlay>
+        <CoverVideo src="/AboveFold.mp4" muted loop autoPlay />
+      </AboveFold>
+
+      <BackgroundEl>
+        <BelowFold>
+          <Flex justifyItems="center" alignItems="start">
+            <HeadshotContainer>
+              <Image
+                src="/Headshot.jpg"
+                alt="Turni Saha Headshot"
+                layout="fill"
+                objectFit="cover"
+              />
+            </HeadshotContainer>
+            <Flex flexDirection="column">
+              <Header as="h2" uppercase color="text" mt="-0.5rem">
+                Hi, My name is Turni
+              </Header>
+              <HeadshotPara>
+                With 4+ years of experience in the video/film industry, I have
+                extensive experience in working with various clients and
+                delivering various forms of video content (Narrative doc piece,
+                short form social media content, music videos, etc.)
+                <br />
+                <br />
+                Looking to work with clients to produce the best quality
+                content! Whether you need quick one-off projects or looking
+                build a long term relationship, I am ready to create the best
+                work for you!
+                <br />
+                <br />
+                <Flex pb="1rem" alignItems="start">
+                  <div>
+                    <Header as="h3" render="h4" uppercase color="primary">
+                      Camera
+                    </Header>
+                    Black Magic Pocket Cinema 6k
+                  </div>
+                  <div>
+                    <Header as="h3" render="h4" uppercase color="primary">
+                      Software
+                    </Header>
+                    Final Cut Pro X + Davinci Resolve
+                  </div>
+                </Flex>
+                <Header as="h3" render="h4" uppercase color="primary">
+                  Experience
+                </Header>
+                Digital Video | Video Production | Video Editing | Short Form
+                Video | Promotional Videos
+              </HeadshotPara>
+            </Flex>
+          </Flex>
+        </BelowFold>
+        <Box maxWidth="69rem" ml="auto" mr="auto">
+          <Header as="h1" render="h2" color="text" uppercase>
+            Featured Work
+          </Header>
+        </Box>
+        <Carousel array={videoIDs} />
+      </BackgroundEl>
+    </Layout>
+  );
+};
 
 export default Home;
