@@ -11,11 +11,62 @@ export interface CarouselProps {
   array: Array<string>;
 }
 
+const ImageOverlay = styled.div`
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  ${({ theme }) => theme.transition};
+`;
+
 const ImageContainer = styled.div`
+  position: relative;
   ${css({
-    borderRadius: '1',
+    borderRadius: '0',
+    borderBottomLeftRadius: '1',
+    borderBottomRightRadius: '1',
   })}
   overflow: hidden;
+  ${({ theme }) => theme.transition};
+  &:hover ${ImageOverlay} {
+    ${({ theme }) => theme.transition};
+    visibility: visible;
+    opacity: 1;
+  }
+`;
+
+const ViewButton = styled.button`
+  text-transform: uppercase;
+  font-weight: 500;
+  ${({ theme }) => theme.transition};
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  ${css({
+    borderRadius: '3',
+    fontFamily: 'title',
+    fontSize: '1',
+    p: '0.5rem',
+    pr: '1.2rem',
+    pl: '1.2rem',
+    bg: 'transparent',
+    color: 'white',
+    border: '0',
+    borderColor: 'white',
+    '&:hover': {
+      color: darkenColor('#FFFFFF', 0.15),
+      borderColor: darkenColor('#FFFFFF', 0.15),
+    },
+    '&:active': {
+      color: darkenColor('#FFFFFF', 0.25),
+      borderColor: darkenColor('#FFFFFF', 0.25),
+    },
+  })}
 `;
 
 const IconButton = styled.button<SpaceProps>`
@@ -96,6 +147,18 @@ const Carousel = (props: CarouselProps) => {
         {chunkedArr[idx].map((i) => (
           <Flex justifyContent="center" alignItems="center" key={i}>
             <ImageContainer>
+              <ImageOverlay>
+                <ViewButton
+                  onClick={() =>
+                    window.open(
+                      `https://www.youtube.com/watch?v=${i}`,
+                      '_blank',
+                    )
+                  }
+                >
+                  View
+                </ViewButton>
+              </ImageOverlay>
               <Image
                 src={`https://img.youtube.com/vi/${i}/mqdefault.jpg`}
                 alt="Youtube Video"

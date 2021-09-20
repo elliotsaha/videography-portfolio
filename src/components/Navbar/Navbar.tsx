@@ -99,9 +99,7 @@ const Navbar = () => {
           <Link href="/">About</Link>
         </LinkSection>
         <Box pr="3rem">
-          <Button variant="outline" pb="1.7rem">
-            Contact
-          </Button>
+          <Button variant="outline">Contact</Button>
         </Box>
       </NavbarRoot>
     </Wrapper>

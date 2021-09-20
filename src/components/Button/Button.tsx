@@ -19,7 +19,6 @@ export interface ButtonProps
     LayoutProps,
     TypographyProps {
   variant?: 'solid' | 'outline' | 'text';
-  color?: string;
   size?: 'sm' | 'md' | 'lg' | 'max';
   pill?: boolean;
   children?: React.ReactNode;
@@ -27,7 +26,6 @@ export interface ButtonProps
 
 const ButtonRoot = styled.button<ButtonProps>`
   border: none;
-  height: 3.25rem;
   width: auto;
   font-family: ${({ theme }) => theme.fonts.title};
   text-transform: uppercase;
@@ -44,21 +42,18 @@ const ButtonRoot = styled.button<ButtonProps>`
     prop: 'size',
     variants: {
       sm: {
-        height: '2.15rem',
         fontSize: '1',
         p: '0.5rem',
         pr: '0.6rem',
         pl: '0.6rem',
       },
       md: {
-        height: '2.75rem',
         fontSize: '2',
         p: '0.75rem',
         pr: '1.1rem',
         pl: '1.1rem',
       },
       lg: {
-        height: '3.5rem',
         fontSize: '3',
         p: '1rem',
         pr: '1.5rem',

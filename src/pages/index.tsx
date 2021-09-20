@@ -77,21 +77,36 @@ const HeadshotPara = styled.p`
   })}
 `;
 
+const FeaturedVideo = styled.iframe`
+  width: 40rem;
+  height: 20rem;
+`;
+
+const FeaturedFilmText = styled.p`
+  max-width: 27.5rem;
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+  ${css({
+    fontFamily: 'body',
+    color: 'text',
+  })}
+`;
+
 const Home = () => {
   // youtube video IDs
   const videoIDs = [
-    'OWKj5xSlR80',
-    'HvQT3Hl44qE',
     '4ilPPFw5owE',
-    'ed56xTQ2JT0',
-    'Yv1Ui_Y3Ryw',
     'm-HKKy2sLrs',
-    'QSnU671Js-c',
-    'GNEO5WfKcYI',
-    'bLK4KanWTRs',
     'fGtFW50TpZA',
-    'XJgWxru0EQo',
+    'GNEO5WfKcYI',
+    'QSnU671Js-c',
+    'bLK4KanWTRs',
+    'HvQT3Hl44qE',
+    'Yv1Ui_Y3Ryw',
     '32hsGWID9Ug',
+    'OWKj5xSlR80',
+    'ed56xTQ2JT0',
+    'XJgWxru0EQo',
   ];
 
   return (
@@ -103,7 +118,7 @@ const Home = () => {
               Turni Saha
             </Header>
             <Header uppercase as="h2" render="h4" mt="-5rem">
-              Videographer | Producer | Creator
+              Marketing | Content | Creation
             </Header>
             <Button variant="outline" size="lg" mt="1rem">
               Get In Touch
@@ -143,16 +158,23 @@ const Home = () => {
                 <br />
                 <Flex pb="1rem" alignItems="start">
                   <div>
-                    <Header as="h3" render="h4" uppercase color="primary">
+                    <Header
+                      as="h3"
+                      render="h4"
+                      uppercase
+                      color="primary"
+                      pr="7rem"
+                    >
                       Camera
                     </Header>
-                    Black Magic Pocket Cinema 6k
+                    Sony A7SIII
                   </div>
                   <div>
                     <Header as="h3" render="h4" uppercase color="primary">
                       Software
                     </Header>
-                    Final Cut Pro X + Davinci Resolve
+                    Adobe Premiere Pro + <br />
+                    Adobe Cloud
                   </div>
                 </Flex>
                 <Header as="h3" render="h4" uppercase color="primary">
@@ -164,12 +186,61 @@ const Home = () => {
             </Flex>
           </Flex>
         </BelowFold>
-        <Box maxWidth="69rem" ml="auto" mr="auto">
-          <Header as="h1" render="h2" color="text" uppercase>
-            Featured Work
-          </Header>
+        <Box pb="7rem">
+          <Box maxWidth="69rem" ml="auto" mr="auto">
+            <Header as="h1" render="h2" color="text" uppercase>
+              Recent work
+            </Header>
+            <Header
+              as="h2"
+              render="h5"
+              color="primary"
+              mt="-1.5rem"
+              pb="1.75rem"
+              uppercase
+            >
+              What I&apos;ve Been Up To
+            </Header>
+          </Box>
+          <Carousel array={videoIDs} />
         </Box>
-        <Carousel array={videoIDs} />
+        <Flex
+          justifyContent="center"
+          alignItems="center"
+          pb="7rem"
+          maxWidth="69rem"
+          ml="auto"
+          mr="auto"
+        >
+          <FeaturedVideo
+            src="https://www.youtube.com/embed/32hsGWID9Ug?showinfo=0&controls=0&rel=1&modestbranding=1"
+            title="YouTube video player"
+            frameBorder="0"
+            allowFullScreen
+          />
+          <Box mb="3rem" pl="4rem">
+            <Header as="h1" render="h2" color="white" uppercase>
+              Featured Video
+            </Header>
+
+            <Header
+              as="h2"
+              render="h5"
+              color="primary"
+              mt="-1.5rem"
+              pb="1.75rem"
+              uppercase
+            >
+              Garden Party (University of British Columbia)
+            </Header>
+            <FeaturedFilmText>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
+              maximus arcu sit amet velit convallis vehicula. Mauris finibus mi
+              eu nulla luctus posuere. Fusce scelerisque, diam et luctus rutrum,
+              arcu ligula cursus est,
+            </FeaturedFilmText>
+          </Box>
+        </Flex>
       </BackgroundEl>
     </Layout>
   );
