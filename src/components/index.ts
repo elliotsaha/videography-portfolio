@@ -7,5 +7,17 @@ import Layout from './Layout';
 import Card from './Card';
 import Navbar from './Navbar';
 import Carousel from './Carousel';
+import TextField from './TextField';
 
-export { Box, Button, Flex, Grid, Header, Layout, Navbar, Card, Carousel };
+export {
+  Box,
+  Button,
+  Flex,
+  Grid,
+  Header,
+  Layout,
+  Navbar,
+  Card,
+  Carousel,
+  TextField,
+};

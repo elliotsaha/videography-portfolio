@@ -7,6 +7,7 @@ import {
   Box,
   Grid,
   Card,
+  TextField,
 } from '@/components';
 import styled from 'styled-components';
 import Image from 'next/image';
@@ -72,9 +73,18 @@ const HeadshotContainer = styled.div`
   width: 30rem;
   height: 45rem;
   margin-right: 7.5rem;
-  & > img {
-    object-fit: cover;
-  }
+`;
+
+const ContactHeadshotContainer = styled.div`
+  ${css({
+    borderRadius: '2',
+  })}
+  overflow: hidden;
+  position: relative;
+  width: 30rem;
+  height: 44rem;
+  margin-top: 2rem;
+  margin-left: 5rem;
 `;
 
 const HeadshotPara = styled.p`
@@ -298,6 +308,60 @@ const Home = () => {
               eget. Suspendisse sodales ultrices tortor ac posuere. Integer
             </Card>
           </Grid>
+        </Flex>
+        <Flex
+          justifyContent="space-between"
+          alignItems="center"
+          flexDirection="row"
+          pb="5rem"
+          width="72rem"
+          ml="auto"
+          mr="auto"
+          pl="2.5rem"
+        >
+          <Flex
+            justifyContent="center"
+            alignItems="center"
+            flexDirection="column"
+          >
+            <Box width="100%">
+              <Header as="h1" render="h2" color="white" uppercase>
+                Get In Touch
+              </Header>
+              <Header
+                as="h2"
+                render="h5"
+                color="primary"
+                uppercase
+                mt="-1.5rem"
+                pb="1.75rem"
+              >
+                Start Working With Me Today
+              </Header>
+            </Box>
+            <TextField width="30rem" placeholder="Name" mb="1.5rem" />
+            <TextField width="30rem" placeholder="Email" mb="1.5rem" />
+            <TextField
+              width="30rem"
+              placeholder="Message"
+              as="textarea"
+              mb="1.5rem"
+              rows="15"
+            />
+            <Box width="100%">
+              <Button variant="outline" size="lg">
+                Submit
+              </Button>
+            </Box>
+          </Flex>
+          <ContactHeadshotContainer>
+            <Image
+              src="/ContactHeadshot.jpeg"
+              alt="Turni Saha Headshot"
+              layout="fill"
+              objectFit="cover"
+            />
+          </ContactHeadshotContainer>
         </Flex>
       </BackgroundEl>
     </Layout>

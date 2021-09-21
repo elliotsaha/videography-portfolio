@@ -31,6 +31,7 @@ export const GlobalTheme = {
     text: '#F5F5F5',
     background: '#0A0A0A',
     grey: '#1E1E1E',
+    lightGrey: '#D8D8D8',
   },
   fonts: {
     title: 'Oswald, Sans-Serif',
@@ -42,12 +43,14 @@ export const GlobalTheme = {
   sizes: {
     max: '100%',
   },
-  borders: ['0.2rem solid'],
+  borders: ['0.2rem solid', '0.15rem solid'],
   borderWidths: {},
   borderStyles: {},
   breakpoints: ['544px', '768px', '1012px', '1280px'],
   radii: ['0.25rem', '0.5rem', '1rem', '50rem'],
-  shadows: {},
+  shadows: {
+    focus: '0 0 0 3px rgba(66,153,225, 0.6)',
+  },
   zIndices: {},
   transition: `-webkit-transition: all 0.15s ease-in-out;
                -moz-transition: all 0.15s ease-in-out;
