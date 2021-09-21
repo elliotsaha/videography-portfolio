@@ -30,6 +30,7 @@ export const GlobalTheme = {
     primary: '#FF5A60',
     text: '#F5F5F5',
     background: '#0A0A0A',
+    grey: '#1E1E1E',
   },
   fonts: {
     title: 'Oswald, Sans-Serif',

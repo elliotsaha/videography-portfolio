@@ -1,7 +1,19 @@
-import { Layout, Header, Button, Flex, Carousel, Box } from '@/components';
+import {
+  Layout,
+  Header,
+  Button,
+  Flex,
+  Carousel,
+  Box,
+  Grid,
+  Card,
+} from '@/components';
 import styled from 'styled-components';
 import Image from 'next/image';
 import css from '@styled-system/css';
+import WallpaperIcon from '@mui/icons-material/Wallpaper';
+import CameraAltIcon from '@mui/icons-material/CameraAlt';
+import CameraEnhanceIcon from '@mui/icons-material/CameraEnhance';
 
 const AboveFold = styled.div`
   position: relative;
@@ -240,6 +252,52 @@ const Home = () => {
               arcu ligula cursus est,
             </FeaturedFilmText>
           </Box>
+        </Flex>
+        <Flex
+          justifyContent="center"
+          alignItems="center"
+          flexDirection="column"
+        >
+          <Header as="h1" render="h2" color="white" uppercase>
+            Pricing Estimates
+          </Header>
+          <Grid
+            gridTemplateColumns="1fr 1fr 1fr"
+            gridGap="4rem"
+            width="70rem"
+            pb="5rem"
+          >
+            <Card
+              icon={<WallpaperIcon />}
+              header="Corperate Advertisements"
+              price="$600"
+            >
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
+              sed erat facilisis magna facilisis viverra non id arcu. Vivamus id
+              mattis purus. Nunc semper lectus nisi, vel efficitur ex malesuada
+              eget. Suspendisse sodales ultrices tortor ac posuere. Integer
+            </Card>
+            <Card
+              icon={<CameraAltIcon />}
+              header="Half Day Event Filming"
+              price="$500-$1000"
+            >
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
+              sed erat facilisis magna facilisis viverra non id arcu. Vivamus id
+              mattis purus. Nunc semper lectus nisi, vel efficitur ex malesuada
+              eget. Suspendisse sodales ultrices tortor ac posuere. Integer
+            </Card>
+            <Card
+              icon={<CameraEnhanceIcon />}
+              header="Full Day Event Filming"
+              price="$750-$1300"
+            >
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
+              sed erat facilisis magna facilisis viverra non id arcu. Vivamus id
+              mattis purus. Nunc semper lectus nisi, vel efficitur ex malesuada
+              eget. Suspendisse sodales ultrices tortor ac posuere. Integer
+            </Card>
+          </Grid>
         </Flex>
       </BackgroundEl>
     </Layout>
