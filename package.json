@@ -40,7 +40,12 @@
     "react-dom": "17.0.2",
     "react-icons": "4.2.0",
     "styled-components": "5.3.1",
-    "styled-system": "5.1.5"
+    "styled-system": "5.1.5",
+    "ts-jest": "27.0.5"
+  },
+  "_moduleAliases": {
+    "@": "./src",
+    "@/public": "./public"
   },
   "devDependencies": {
     "@commitlint/cli": "13.1.0",
