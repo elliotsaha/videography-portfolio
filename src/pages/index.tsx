@@ -15,6 +15,9 @@ import css from '@styled-system/css';
 import WallpaperIcon from '@mui/icons-material/Wallpaper';
 import CameraAltIcon from '@mui/icons-material/CameraAlt';
 import CameraEnhanceIcon from '@mui/icons-material/CameraEnhance';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import FacebookIcon from '@mui/icons-material/Facebook';
 
 const AboveFold = styled.div`
   position: relative;
@@ -82,7 +85,7 @@ const ContactHeadshotContainer = styled.div`
   overflow: hidden;
   position: relative;
   width: 30rem;
-  height: 44rem;
+  height: 40rem;
   margin-top: 2rem;
   margin-left: 5rem;
 `;
@@ -112,6 +115,17 @@ const FeaturedFilmText = styled.p`
     fontFamily: 'body',
     color: 'text',
   })}
+`;
+
+const SocialContainer = styled.div`
+  position: absolute;
+  display: flex;
+  & > svg {
+    font-size: 2rem;
+    margin-right: 0.65rem;
+  }
+  bottom: 1rem;
+  left: 1rem;
 `;
 
 const Home = () => {
@@ -146,6 +160,11 @@ const Home = () => {
               Get In Touch
             </Button>
           </AboveFoldCTA>
+          <SocialContainer>
+            <LinkedInIcon />
+            <InstagramIcon />
+            <FacebookIcon />
+          </SocialContainer>
         </Overlay>
         <CoverVideo src="/AboveFold.mp4" muted loop autoPlay />
       </AboveFold>
@@ -155,7 +174,7 @@ const Home = () => {
           <Flex justifyItems="center" alignItems="start">
             <HeadshotContainer>
               <Image
-                src="/Headshot.jpg"
+                src="/Headshot.jpeg"
                 alt="Turni Saha Headshot"
                 layout="fill"
                 objectFit="cover"
@@ -346,7 +365,7 @@ const Home = () => {
               placeholder="Message"
               as="textarea"
               mb="1.5rem"
-              rows="15"
+              rows={15}
             />
             <Box width="100%">
               <Button variant="outline" size="lg">
