@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import {
   Layout,
   Header,
@@ -121,8 +122,8 @@ const SocialContainer = styled.div`
   position: absolute;
   display: flex;
   & > svg {
-    font-size: 2rem;
-    margin-right: 0.65rem;
+    font-size: 2.5rem;
+    margin-right: 0.8rem;
   }
   bottom: 1rem;
   left: 1rem;
@@ -145,6 +146,8 @@ const Home = () => {
     'XJgWxru0EQo',
   ];
 
+  const router = useRouter();
+
   return (
     <Layout>
       <AboveFold>
@@ -154,9 +157,14 @@ const Home = () => {
               Turni Saha
             </Header>
             <Header uppercase as="h2" render="h4" mt="-5rem">
-              Marketing | Content | Creation
+              Marketing | Videography | Creation
             </Header>
-            <Button variant="outline" size="lg" mt="1rem">
+            <Button
+              variant="outline"
+              size="lg"
+              mt="1rem"
+              onClick={() => router.push('/#contact')}
+            >
               Get In Touch
             </Button>
           </AboveFoldCTA>
@@ -170,12 +178,14 @@ const Home = () => {
       </AboveFold>
 
       <BackgroundEl>
-        <BelowFold>
+        <BelowFold id="about">
           <Flex justifyItems="center" alignItems="start">
             <HeadshotContainer>
               <Image
                 src="/Headshot.jpeg"
                 alt="Turni Saha Headshot"
+                placeholder="blur"
+                blurDataURL="/Headshot.jpeg"
                 layout="fill"
                 objectFit="cover"
               />
@@ -329,6 +339,7 @@ const Home = () => {
           </Grid>
         </Flex>
         <Flex
+          id="contact"
           justifyContent="space-between"
           alignItems="center"
           flexDirection="row"
@@ -379,6 +390,8 @@ const Home = () => {
               alt="Turni Saha Headshot"
               layout="fill"
               objectFit="cover"
+              placeholder="blur"
+              blurDataURL="/ContactHeadshot.jpeg"
             />
           </ContactHeadshotContainer>
         </Flex>

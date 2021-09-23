@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Link from 'next/link';
 import css from '@styled-system/css';
 import { Button, Box } from '@/components';
+import { useRouter } from 'next/router';
 
 const Wrapper = styled.div`
   display: flex;
@@ -87,6 +88,7 @@ const Navbar = () => {
 
   const scroll = scrollPosition > 10;
 
+  const router = useRouter();
   return (
     <Wrapper>
       <NavbarRoot scroll={scroll}>
@@ -95,11 +97,13 @@ const Navbar = () => {
         </Box>
         <LinkSection>
           <Link href="/">Home</Link>
-          <Link href="/">Projects</Link>
-          <Link href="/">About</Link>
+          <Link href="/projects">Projects</Link>
+          <Link href="/#about">About</Link>
         </LinkSection>
         <Box pr="3rem">
-          <Button variant="outline">Contact</Button>
+          <Button variant="outline" onClick={() => router.push('/#contact')}>
+            Contact
+          </Button>
         </Box>
       </NavbarRoot>
     </Wrapper>
