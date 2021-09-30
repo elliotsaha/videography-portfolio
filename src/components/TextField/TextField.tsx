@@ -27,6 +27,7 @@ const TextFieldRoot = styled.input<any>`
     borderColor: 'white',
   })}
   padding: 0.85rem;
+  resize: none;
   &:focus {
     ${css({
       boxShadow: 'focus',

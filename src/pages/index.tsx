@@ -119,14 +119,14 @@ const FeaturedFilmText = styled.p`
 `;
 
 const SocialContainer = styled.div`
-  position: absolute;
-  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 1.75rem;
   & > svg {
     font-size: 2.5rem;
-    margin-right: 0.8rem;
+    margin-left: 0.4rem;
+    margin-right: 0.4rem;
   }
-  bottom: 1rem;
-  left: 1rem;
 `;
 
 const Home = () => {
@@ -156,9 +156,15 @@ const Home = () => {
             <Header uppercase fontSize="10rem">
               Turni Saha
             </Header>
-            <Header uppercase as="h2" render="h4" mt="-5rem">
+            <Header uppercase as="h2" render="h4" mt="-6.5rem">
               Marketing | Videography | Creation
             </Header>
+
+            <SocialContainer>
+              <LinkedInIcon />
+              <InstagramIcon />
+              <FacebookIcon />
+            </SocialContainer>
             <Button
               variant="outline"
               size="lg"
@@ -168,11 +174,6 @@ const Home = () => {
               Get In Touch
             </Button>
           </AboveFoldCTA>
-          <SocialContainer>
-            <LinkedInIcon />
-            <InstagramIcon />
-            <FacebookIcon />
-          </SocialContainer>
         </Overlay>
         <CoverVideo src="/AboveFold.mp4" muted loop autoPlay />
       </AboveFold>
