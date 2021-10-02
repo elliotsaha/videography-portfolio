@@ -1,15 +1,19 @@
 import { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import { layout, LayoutProps } from 'styled-system';
 import Link from 'next/link';
 import css from '@styled-system/css';
 import { Button, Box } from '@/components';
 import { useRouter } from 'next/router';
+import MenuIcon from '@mui/icons-material/Menu';
+import { GlobalTheme } from '@/utils/UI';
 
 const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   transition: 0.5s;
 `;
+
 const NavbarRoot = styled.div<{ scroll: boolean }>`
   width: 100%;
   transition: 0.25s;
@@ -44,7 +48,7 @@ const NavbarRoot = styled.div<{ scroll: boolean }>`
     })}
 `;
 
-const LinkSection = styled.div`
+const LinkSection = styled.div<LayoutProps>`
   display: flex;
   align-items: center;
   & > a {
@@ -68,43 +72,127 @@ const LinkSection = styled.div`
       transition: 0.3s, background-size 0.3s 0.3s;
     }
   }
+  ${layout};
+`;
+
+const IconContainer = styled.button`
+  width: 2.5rem;
+  background: none;
+  border: none;
+  & > * {
+    width: 100%;
+    height: 100%;
+    color: white;
+  }
+`;
+
+const MobileMenu = styled.div<LayoutProps>`
+  display: none;
+  ${css({
+    fontFamily: 'title',
+    bg: 'background',
+  })}
+  height: 15.5rem;
+  width: 100%;
+  position: absolute;
+  top: 3rem;
+  padding-left: 2rem;
+  transition: 0.25s;
+  ${layout};
+`;
+
+const VerticalLinkSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  & a {
+    text-decoration: none;
+    ${css({
+      color: 'text',
+      pt: '1.5rem',
+    })}
+    text-transform: uppercase;
+    ${css({
+      fontFamily: 'title',
+    })}
+    font-size: 1.25rem;
+  }
 `;
 
 const Navbar = () => {
   const [scrollPosition, setScrollPositon] = useState(0);
+  const [mobileMenuActive, setMobileMenuActive] = useState(false);
 
   const handleScroll = () => {
     const position = window.pageYOffset;
     setScrollPositon(position);
   };
 
+  const handleResize = () => {
+    const intBreakpoint = parseInt(
+      GlobalTheme.breakpoints[2].split('px').shift() as string,
+      10,
+    );
+    if (window.innerWidth >= intBreakpoint) {
+      setMobileMenuActive(false);
+    }
+  };
+
   useEffect(() => {
     window.addEventListener('scroll', handleScroll, { passive: true });
-
+    window.addEventListener('resize', handleResize);
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
-  const scroll = scrollPosition > 10;
+  const scroll = mobileMenuActive ? true : scrollPosition > 10;
+
+  const mobileNavOnClick = () => {
+    setMobileMenuActive(!mobileMenuActive);
+  };
 
   const router = useRouter();
+
   return (
     <Wrapper>
       <NavbarRoot scroll={scroll}>
-        <Box pl="3rem">
+        <Box pl={['2rem', null, null, '3rem']}>
           <Link href="/">Turni Saha</Link>
         </Box>
-        <LinkSection>
+        <LinkSection display={['none', null, null, 'flex']}>
           <Link href="/">Home</Link>
           <Link href="/projects">Projects</Link>
           <Link href="/#about">About</Link>
         </LinkSection>
-        <Box pr="3rem">
+        <Box pr="3rem" display={['none', null, null, 'flex']}>
           <Button variant="outline" onClick={() => router.push('/#contact')}>
             Contact
           </Button>
         </Box>
+        <Box
+          pr={['1.5rem', null, null, '3rem']}
+          display={['block', null, null, 'none']}
+        >
+          <IconContainer onClick={mobileNavOnClick}>
+            <MenuIcon />
+          </IconContainer>
+        </Box>
+        <MobileMenu display={mobileMenuActive ? 'block' : 'none'}>
+          <VerticalLinkSection>
+            <Link href="/">Home</Link>
+            <Link href="/projects">Projects</Link>
+            <Link href="/#about">About</Link>
+          </VerticalLinkSection>
+          <Box mr="3.75rem" pt="2rem">
+            <Button
+              width="max"
+              variant="outline"
+              onClick={() => router.push('/#contact')}
+            >
+              Contact
+            </Button>
+          </Box>
+        </MobileMenu>
       </NavbarRoot>
     </Wrapper>
   );
