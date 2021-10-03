@@ -31,6 +31,9 @@ const AboveFold = styled.div`
   justify-content: space-between;
   align-items: center;
   transition: 0.5s;
+  @media (max-width: ${({ theme }) => theme.breakpoints[1]}) {
+    height: 45rem;
+  }
 `;
 
 const CoverVideo = styled.video`
@@ -249,7 +252,9 @@ const Home = () => {
             </Button>
           </AboveFoldCTA>
         </Overlay>
-        <CoverVideo src="/AboveFold.mp4" muted loop autoPlay />
+        <CoverVideo muted loop autoPlay playsInline>
+          <source src="/AboveFold.mp4" type="video/mp4" />
+        </CoverVideo>
       </AboveFold>
 
       <BackgroundEl>
