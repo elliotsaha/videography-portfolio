@@ -243,7 +243,7 @@ const Home = () => {
               variant="outline"
               size="lg"
               mt="1rem"
-              onClick={() => router.push('/#contact')}
+              onClick={() => router.push('/contact')}
             >
               Get In Touch
             </Button>
