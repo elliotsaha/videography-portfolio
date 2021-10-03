@@ -497,62 +497,69 @@ const Home = () => {
           pb="5rem"
           flexDirection={['column-reverse', null, null, 'row']}
         >
-          <form
-            name="contact"
-            action="/submission"
-            method="GET"
-            data-netlify="true"
+          <Flex
+            justifyContent="center"
+            alignItems="center"
+            flexDirection="column"
           >
-            <Flex
-              justifyContent="center"
-              alignItems="center"
-              flexDirection="column"
+            <Box width="100%">
+              <Header as="h1" render="h2" color="white" uppercase>
+                Get In Touch
+              </Header>
+              <Header
+                as="h2"
+                render="h5"
+                color="primary"
+                uppercase
+                mt="-1.5rem"
+                pb="1.75rem"
+              >
+                Start Working With Me Today
+              </Header>
+            </Box>
+
+            <form
+              name="contact"
+              action="/submission"
+              method="POST"
+              data-netlify="true"
             >
-              <Box width="100%">
-                <Header as="h1" render="h2" color="white" uppercase>
-                  Get In Touch
-                </Header>
-                <Header
-                  as="h2"
-                  render="h5"
-                  color="primary"
-                  uppercase
-                  mt="-1.5rem"
-                  pb="1.75rem"
-                >
-                  Start Working With Me Today
-                </Header>
-              </Box>
-              <TextField
-                width={['15rem', '27rem']}
-                placeholder="Name"
-                mb="1.5rem"
-                type="text"
-                name="name"
-              />
-              <TextField
-                width={['15rem', '27rem']}
-                placeholder="Email"
-                mb="1.5rem"
-                type="text"
-                name="email"
-              />
-              <TextField
-                width={['15rem', '27rem']}
-                placeholder="Message"
-                as="textarea"
-                mb="1.5rem"
-                rows={15}
-                type="text"
-                name="message"
-              />
-              <Box width="100%">
-                <Button variant="outline" size="lg" type="submit">
-                  Submit
-                </Button>
-              </Box>
-            </Flex>
-          </form>
+              <Flex
+                justifyContent="center"
+                alignItems="center"
+                flexDirection="column"
+              >
+                <TextField
+                  width={['15rem', '27rem']}
+                  placeholder="Name"
+                  mb="1.5rem"
+                  type="text"
+                  name="name"
+                />
+                <TextField
+                  width={['15rem', '27rem']}
+                  placeholder="Email"
+                  mb="1.5rem"
+                  type="text"
+                  name="email"
+                />
+                <TextField
+                  width={['15rem', '27rem']}
+                  placeholder="Message"
+                  as="textarea"
+                  mb="1.5rem"
+                  rows={15}
+                  type="text"
+                  name="message"
+                />
+                <Box width="100%">
+                  <Button variant="outline" size="lg" type="submit">
+                    Submit
+                  </Button>
+                </Box>
+              </Flex>
+            </form>
+          </Flex>
           <ContactHeadshotContainer>
             <Image
               src="/ContactHeadshot.jpeg"
