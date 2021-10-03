@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
-import { Flex, Grid } from '@/components';
+import React, { useState, useEffect } from 'react';
+import { Flex, Box, Header } from '@/components';
 import { space, SpaceProps } from 'styled-system';
 import styled from 'styled-components';
 import css from '@styled-system/css';
 import { darkenColor } from '@/utils/ColorManipulation';
 import { BiChevronLeft, BiChevronRight } from 'react-icons/bi';
 import Image from 'next/image';
+import { GlobalTheme } from '@/utils/UI';
 
 export interface CarouselProps {
   array: Array<string>;
@@ -20,6 +21,11 @@ const ImageOverlay = styled.div`
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
   ${({ theme }) => theme.transition};
+  @media (max-width: ${({ theme }) => theme.breakpoints[0]}) {
+    ${({ theme }) => theme.transition};
+    visibility: visible;
+    opacity: 1;
+  }
 `;
 
 const ImageContainer = styled.div`
@@ -35,6 +41,27 @@ const ImageContainer = styled.div`
     ${({ theme }) => theme.transition};
     visibility: visible;
     opacity: 1;
+  }
+  height: 220px;
+  width: 22rem;
+  @media (max-width: ${({ theme }) => theme.breakpoints[3]}) {
+    width: 18.5rem;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints[0]}) {
+    width: 100%;
+    height: 250px;
+    border-radius: 0;
+  }
+`;
+
+const ChunkedMapList = styled.div`
+  display: flex;
+  flex-direction: row;
+
+  & > div:nth-child(2) {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
   }
 `;
 
@@ -103,12 +130,37 @@ const chunkArr = (array: Array<string>, chunk: number) => {
   for (let i = 0, j = array.length; i < j; i += chunk) {
     resArr.push(array.slice(i, i + chunk));
   }
+
   return resArr;
 };
 
 const Carousel = (props: CarouselProps) => {
   const { array } = props;
-  const chunkNum = 3;
+  const [chunkNum, setChunkNum] = useState(1);
+
+  useEffect(() => {
+    const breakpoints: number[] = [];
+
+    GlobalTheme.breakpoints.map((i: string): null => {
+      const intBreakpoint = parseInt(i.split('px').shift() as string, 10);
+      breakpoints.push(intBreakpoint);
+      return null;
+    });
+
+    const chunkNumResize = () => {
+      if (window.innerWidth >= breakpoints[2]) {
+        setChunkNum(3);
+      } else if (window.innerWidth >= breakpoints[1]) {
+        setChunkNum(2);
+      } else {
+        setChunkNum(1);
+      }
+    };
+
+    chunkNumResize();
+    window.addEventListener('resize', chunkNumResize);
+  }, []);
+
   const chunkedArr = chunkArr(array, chunkNum);
 
   const [idx, setIdx] = useState(0); // index position for chunkedArr
@@ -129,24 +181,27 @@ const Carousel = (props: CarouselProps) => {
     }
   };
 
-  const templateGridArr = [];
-  for (let i = 0; i < chunkNum; i += 1) {
-    templateGridArr.push('1fr');
-  }
-  const templateGridStr = templateGridArr.join(' ');
-
   return (
-    <>
-      <Grid
-        gridTemplateColumns={templateGridStr}
-        gridGap="1rem"
-        maxWidth="72rem"
-        mr="auto"
-        ml="auto"
-      >
-        {chunkedArr[idx].map((i) => (
-          <Flex justifyContent="center" alignItems="center" key={i}>
-            <ImageContainer>
+    <Flex flexDirection="column" justifyContent="center" alignItems="center">
+      <Box width={['100%', 'auto']}>
+        <Box pr="3rem" ml={['1.5rem', '0rem']}>
+          <Header as="h1" render="h2" color="text" uppercase>
+            Recent work
+          </Header>
+          <Header
+            as="h2"
+            render="h5"
+            color="primary"
+            mt="-1.5rem"
+            pb="1.75rem"
+            uppercase
+          >
+            What I&apos;ve Been Up To
+          </Header>
+        </Box>
+        <ChunkedMapList>
+          {chunkedArr[idx].map((i) => (
+            <ImageContainer key={i}>
               <ImageOverlay>
                 <ViewButton
                   onClick={() =>
@@ -164,24 +219,24 @@ const Carousel = (props: CarouselProps) => {
                 alt="Youtube Video"
                 placeholder="blur"
                 blurDataURL={`https://img.youtube.com/vi/${i}/mqdefault.jpg`}
-                width="320px"
-                height="180px"
-                quality={75}
+                layout="fill"
+                objectFit="cover"
+                quality={100}
               />
             </ImageContainer>
-          </Flex>
-        ))}
-      </Grid>
+          ))}
+        </ChunkedMapList>
 
-      <Flex maxWidth="69rem" mr="auto" ml="auto" mt="1.5rem">
-        <IconButton mr="0.5rem" onClick={prev}>
-          <BiChevronLeft />
-        </IconButton>
-        <IconButton onClick={next}>
-          <BiChevronRight />
-        </IconButton>
-      </Flex>
-    </>
+        <Flex pt="2rem" ml={['1.5rem', '0rem']}>
+          <IconButton mr="0.5rem" onClick={prev}>
+            <BiChevronLeft />
+          </IconButton>
+          <IconButton onClick={next}>
+            <BiChevronRight />
+          </IconButton>
+        </Flex>
+      </Box>
+    </Flex>
   );
 };
 

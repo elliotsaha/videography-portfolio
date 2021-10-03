@@ -76,6 +76,7 @@ const LinkSection = styled.div<LayoutProps>`
 `;
 
 const IconContainer = styled.button`
+  cursor: pointer;
   width: 2.5rem;
   background: none;
   border: none;
@@ -142,6 +143,7 @@ const Navbar = () => {
     window.addEventListener('resize', handleResize);
     return () => {
       window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleResize);
     };
   }, []);
 

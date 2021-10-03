@@ -66,6 +66,7 @@ export const GlobalReset = createGlobalStyle`
 
   body {
     margin: 0;
+    overflow-x: hidden;
   }
 
   main {
