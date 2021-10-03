@@ -256,7 +256,7 @@ const Home = () => {
   }, [router]);
 
   return (
-    <Layout>
+    <Layout title="Homepage">
       <AboveFold>
         <Overlay>
           <AboveFoldCTA>

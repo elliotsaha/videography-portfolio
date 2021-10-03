@@ -132,7 +132,7 @@ const Projects = () => {
   ];
 
   return (
-    <Layout>
+    <Layout title="Projects">
       <BackgroundEl>
         <Flex
           pt="10rem"

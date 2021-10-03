@@ -85,7 +85,7 @@ const HeadshotPara = styled.p`
 `;
 
 const About = () => (
-  <Layout>
+  <Layout title="About">
     <Wrapper>
       <BelowFold id="about">
         <Flex

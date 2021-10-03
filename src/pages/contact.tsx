@@ -45,7 +45,7 @@ const ContactHeadshotContainer = styled.div`
 `;
 
 const Contact = () => (
-  <Layout>
+  <Layout title="Contact">
     <BackgroundEl>
       <Flex
         justifyContent="center"
