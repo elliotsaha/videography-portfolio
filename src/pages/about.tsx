@@ -61,6 +61,10 @@ const HeadshotContainer = styled.div`
   ${up('3')} {
     margin-right: 7.5rem;
   }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints[0]}) {
+    height: 17rem;
+  }
 `;
 
 const HeadshotPara = styled.p`
@@ -97,6 +101,7 @@ const About = () => (
               blurDataURL="/Headshot.jpeg"
               layout="fill"
               objectFit="cover"
+              objectPosition="100% 15%"
             />
           </HeadshotContainer>
           <Flex

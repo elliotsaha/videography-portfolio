@@ -39,7 +39,7 @@ const ContactHeadshotContainer = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakpoints[0]}) {
     width: 100vw;
-    height: 35rem;
+    height: 17rem;
     border-radius: 0;
   }
 `;
@@ -104,7 +104,7 @@ const Contact = () => (
             objectFit="cover"
             placeholder="blur"
             blurDataURL="/ContactHeadshot.jpeg"
-            objectPosition="100% 0"
+            objectPosition="100% 5%"
           />
         </ContactHeadshotContainer>
       </Flex>

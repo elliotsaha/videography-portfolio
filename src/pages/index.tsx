@@ -32,7 +32,7 @@ const AboveFold = styled.div`
   align-items: center;
   transition: 0.5s;
   @media (max-width: ${({ theme }) => theme.breakpoints[1]}) {
-    height: 45rem;
+    height: 32rem;
   }
 `;
 
@@ -42,6 +42,21 @@ const CoverVideo = styled.video`
   object-fit: cover;
   position: absolute;
   top: 0;
+  @media (max-width: ${({ theme }) => theme.breakpoints[1]}) {
+    display: none;
+  }
+`;
+
+const CoverMobileImg = styled.img`
+  display: none;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  @media (max-width: ${({ theme }) => theme.breakpoints[1]}) {
+    display: block;
+  }
 `;
 
 const Overlay = styled.div`
@@ -91,7 +106,6 @@ const HeadshotContainer = styled.div`
   overflow: hidden;
   position: relative;
   width: 30rem;
-  height: 98%;
   margin-right: 2.5rem;
   height: 40rem;
   ${up('2')} {
@@ -111,6 +125,10 @@ const HeadshotContainer = styled.div`
   }
   ${up('3')} {
     margin-right: 7.5rem;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints[0]}) {
+    height: 17rem;
   }
 `;
 
@@ -138,6 +156,7 @@ const ContactHeadshotContainer = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakpoints[0]}) {
     width: 100%;
+    height: 17rem;
     border-radius: 0;
   }
 `;
@@ -252,17 +271,10 @@ const Home = () => {
             </Button>
           </AboveFoldCTA>
         </Overlay>
-        {/* eslint-disable */}
-        <CoverVideo
-          muted={true}
-          loop={true}
-          autoPlay={true}
-          playsInline={true}
-          controls={false}
-        >
-          {/* eslint-enable */}
+        <CoverVideo muted loop autoPlay playsInline controls={false}>
           <source src="/AboveFold.mp4" type="video/mp4" />
         </CoverVideo>
+        <CoverMobileImg src="/AboveFoldImg.png" alt="Cover" />
       </AboveFold>
 
       <BackgroundEl>
@@ -280,6 +292,7 @@ const Home = () => {
                 blurDataURL="/Headshot.jpeg"
                 layout="fill"
                 objectFit="cover"
+                objectPosition="100% 15%"
               />
             </HeadshotContainer>
             <Flex
@@ -517,6 +530,7 @@ const Home = () => {
               objectFit="cover"
               placeholder="blur"
               blurDataURL="/ContactHeadshot.jpeg"
+              objectPosition="100% 5%"
             />
           </ContactHeadshotContainer>
         </Flex>
