@@ -499,8 +499,8 @@ const Home = () => {
         >
           <form
             name="contact"
-            action="/?success=true"
-            method="POST"
+            action="/submission"
+            method="GET"
             data-netlify="true"
           >
             <Flex
