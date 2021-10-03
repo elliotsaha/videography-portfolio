@@ -520,10 +520,11 @@ const Home = () => {
 
             <form
               name="contact"
-              action="/submission"
+              action="/success"
               method="POST"
               data-netlify="true"
             >
+              <input type="hidden" name="form-name" value="contact" />
               <Flex
                 justifyContent="center"
                 alignItems="center"
