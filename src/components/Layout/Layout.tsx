@@ -1,6 +1,7 @@
 import { ThemeProvider } from 'styled-components';
 import { GlobalTheme } from '@/utils/UI';
 import { Navbar } from '@/components';
+import { Toaster } from 'react-hot-toast';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -14,6 +15,7 @@ const Layout = (props: LayoutProps) => {
         <Navbar />
         {children}
       </ThemeProvider>
+      <Toaster />
     </>
   );
 };

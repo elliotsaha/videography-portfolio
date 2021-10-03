@@ -21,6 +21,8 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import HouseRoundedIcon from '@mui/icons-material/HouseRounded';
 import { up, down } from 'styled-breakpoints';
+import toast from 'react-hot-toast';
+import { useEffect } from 'react';
 
 const AboveFold = styled.div`
   position: relative;
@@ -236,6 +238,22 @@ const Home = () => {
   ];
 
   const router = useRouter();
+
+  useEffect(() => {
+    if (router?.query?.success) {
+      (() =>
+        toast.success('Successfully Sent Message', {
+          position: 'bottom-center',
+          duration: 4000,
+          style: {
+            fontFamily: 'Inter, sans-serif',
+            background: 'black',
+            color: 'white',
+          },
+        }))();
+      router.push('/', undefined, { shallow: true });
+    }
+  }, [router]);
 
   return (
     <Layout>
@@ -479,49 +497,62 @@ const Home = () => {
           pb="5rem"
           flexDirection={['column-reverse', null, null, 'row']}
         >
-          <Flex
-            justifyContent="center"
-            alignItems="center"
-            flexDirection="column"
+          <form
+            name="contact"
+            action="/?success=true"
+            method="POST"
+            data-netlify="true"
           >
-            <Box width="100%">
-              <Header as="h1" render="h2" color="white" uppercase>
-                Get In Touch
-              </Header>
-              <Header
-                as="h2"
-                render="h5"
-                color="primary"
-                uppercase
-                mt="-1.5rem"
-                pb="1.75rem"
-              >
-                Start Working With Me Today
-              </Header>
-            </Box>
-            <TextField
-              width={['15rem', '27rem']}
-              placeholder="Name"
-              mb="1.5rem"
-            />
-            <TextField
-              width={['15rem', '27rem']}
-              placeholder="Email"
-              mb="1.5rem"
-            />
-            <TextField
-              width={['15rem', '27rem']}
-              placeholder="Message"
-              as="textarea"
-              mb="1.5rem"
-              rows={15}
-            />
-            <Box width="100%">
-              <Button variant="outline" size="lg">
-                Submit
-              </Button>
-            </Box>
-          </Flex>
+            <Flex
+              justifyContent="center"
+              alignItems="center"
+              flexDirection="column"
+            >
+              <Box width="100%">
+                <Header as="h1" render="h2" color="white" uppercase>
+                  Get In Touch
+                </Header>
+                <Header
+                  as="h2"
+                  render="h5"
+                  color="primary"
+                  uppercase
+                  mt="-1.5rem"
+                  pb="1.75rem"
+                >
+                  Start Working With Me Today
+                </Header>
+              </Box>
+              <TextField
+                width={['15rem', '27rem']}
+                placeholder="Name"
+                mb="1.5rem"
+                type="text"
+                name="name"
+              />
+              <TextField
+                width={['15rem', '27rem']}
+                placeholder="Email"
+                mb="1.5rem"
+                type="text"
+                name="email"
+              />
+              <TextField
+                width={['15rem', '27rem']}
+                placeholder="Message"
+                as="textarea"
+                mb="1.5rem"
+                rows={15}
+                type="text"
+                name="message"
+              />
+              <Box width="100%">
+                <Button variant="outline" size="lg" type="submit">
+                  Submit
+                </Button>
+              </Box>
+            </Flex>
+          </form>
           <ContactHeadshotContainer>
             <Image
               src="/ContactHeadshot.jpeg"
