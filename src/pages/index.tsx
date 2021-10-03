@@ -252,7 +252,15 @@ const Home = () => {
             </Button>
           </AboveFoldCTA>
         </Overlay>
-        <CoverVideo muted loop autoPlay playsInline>
+        {/* eslint-disable */}
+        <CoverVideo
+          muted={true}
+          loop={true}
+          autoPlay={true}
+          playsInline={true}
+          controls={false}
+        >
+          {/* eslint-enable */}
           <source src="/AboveFold.mp4" type="video/mp4" />
         </CoverVideo>
       </AboveFold>
