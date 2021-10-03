@@ -164,10 +164,10 @@ const Navbar = () => {
         <LinkSection display={['none', null, null, 'flex']}>
           <Link href="/">Home</Link>
           <Link href="/projects">Projects</Link>
-          <Link href="/#about">About</Link>
+          <Link href="/about">About</Link>
         </LinkSection>
         <Box pr="3rem" display={['none', null, null, 'flex']}>
-          <Button variant="outline" onClick={() => router.push('/#contact')}>
+          <Button variant="outline" onClick={() => router.push('/contact')}>
             Contact
           </Button>
         </Box>
@@ -183,13 +183,13 @@ const Navbar = () => {
           <VerticalLinkSection>
             <Link href="/">Home</Link>
             <Link href="/projects">Projects</Link>
-            <Link href="/#about">About</Link>
+            <Link href="/about">About</Link>
           </VerticalLinkSection>
           <Box mr="3.75rem" pt="2rem">
             <Button
               width="max"
               variant="outline"
-              onClick={() => router.push('/#contact')}
+              onClick={() => router.push('/contact')}
             >
               Contact
             </Button>
