@@ -541,7 +541,7 @@ const Home = () => {
                   width={['15rem', '27rem']}
                   placeholder="Email"
                   mb="1.5rem"
-                  type="text"
+                  type="email"
                   name="email"
                 />
                 <TextField

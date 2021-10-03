@@ -73,28 +73,50 @@ const Contact = () => (
               Start Working With Me Today
             </Header>
           </Box>
-          <TextField
-            width={['15rem', '27rem']}
-            placeholder="Name"
-            mb="1.5rem"
-          />
-          <TextField
-            width={['15rem', '27rem']}
-            placeholder="Email"
-            mb="1.5rem"
-          />
-          <TextField
-            width={['15rem', '27rem']}
-            placeholder="Message"
-            as="textarea"
-            mb="1.5rem"
-            rows={15}
-          />
-          <Box width="100%">
-            <Button variant="outline" size="lg">
-              Submit
-            </Button>
-          </Box>
+
+          <form
+            name="contact"
+            action="/success"
+            method="POST"
+            data-netlify="true"
+          >
+            <input type="hidden" name="form-name" value="contact" />
+
+            <Flex
+              justifyContent="center"
+              alignItems="center"
+              flexDirection="column"
+            >
+              <TextField
+                width={['15rem', '27rem']}
+                placeholder="Name"
+                mb="1.5rem"
+                type="text"
+                name="name"
+              />
+              <TextField
+                width={['15rem', '27rem']}
+                placeholder="Email"
+                mb="1.5rem"
+                type="email"
+                name="email"
+              />
+              <TextField
+                width={['15rem', '27rem']}
+                placeholder="Message"
+                as="textarea"
+                mb="1.5rem"
+                rows={15}
+                type="text"
+                name="message"
+              />
+              <Box width="100%">
+                <Button variant="outline" size="lg">
+                  Submit
+                </Button>
+              </Box>
+            </Flex>
+          </form>
         </Flex>
         <ContactHeadshotContainer>
           <Image
