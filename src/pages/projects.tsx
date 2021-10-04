@@ -140,10 +140,10 @@ const Projects = () => {
               Garden Party (University of British Columbia)
             </Header>
             <FeaturedFilmText>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
-              maximus arcu sit amet velit convallis vehicula. Mauris finibus mi
-              eu nulla luctus posuere. Fusce scelerisque, diam et luctus rutrum,
-              arcu ligula cursus est,
+              Garden Party is the grand opening party of the school year. It’s
+              crowded, there’s music and the goal of the video was to capture
+              the reunion of people after the pandemic and get people excited
+              about the upcoming year.
             </FeaturedFilmText>
           </Box>
         </Flex>
