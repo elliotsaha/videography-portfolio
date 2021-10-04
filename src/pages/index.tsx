@@ -278,7 +278,8 @@ const Home = () => {
 
             <SocialContainer>
               <a
-                href="https://www.facebook.com/turni.saha"
+                href="https://www.linkedin.com/in/turni-saha-236817165"
+                target="_blank"
                 rel="noopener noreferrer"
               >
                 <LinkedInIcon />
@@ -286,13 +287,15 @@ const Home = () => {
 
               <a
                 href="https://www.instagram.com/turnisaha.videography"
+                target="_blank"
                 rel="noopener noreferrer"
               >
                 <InstagramIcon />
               </a>
 
               <a
-                href="https://www.linkedin.com/in/turni-saha-236817165"
+                href="https://www.facebook.com/turni.saha"
+                target="_blank"
                 rel="noopener noreferrer"
               >
                 <FacebookIcon />
