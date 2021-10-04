@@ -42,8 +42,10 @@ const Price = styled.span`
 
 const IconContainer = styled.div`
   width: 3.25rem;
+  font-size: 3.25rem;
   margin-top: 2rem;
-  & > * {
+  & svg {
+    font-size: 3.25rem;
     width: 100%;
     height: 100%;
     ${css({
