@@ -213,7 +213,9 @@ const SocialContainer = styled.div`
   margin-left: auto;
   margin-right: auto;
   padding-bottom: 1.75rem;
-  & > svg {
+  & svg {
+    cursor: pointer;
+    color: white;
     font-size: 2.5rem;
     margin-left: 0.4rem;
     margin-right: 0.4rem;
@@ -275,9 +277,26 @@ const Home = () => {
             </Header>
 
             <SocialContainer>
-              <LinkedInIcon />
-              <InstagramIcon />
-              <FacebookIcon />
+              <a
+                href="https://www.facebook.com/turni.saha"
+                rel="noopener noreferrer"
+              >
+                <LinkedInIcon />
+              </a>
+
+              <a
+                href="https://www.instagram.com/turnisaha.videography"
+                rel="noopener noreferrer"
+              >
+                <InstagramIcon />
+              </a>
+
+              <a
+                href="https://www.linkedin.com/in/turni-saha-236817165"
+                rel="noopener noreferrer"
+              >
+                <FacebookIcon />
+              </a>
             </SocialContainer>
             <Button
               variant="outline"
