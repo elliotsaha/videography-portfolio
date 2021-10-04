@@ -3,19 +3,23 @@ import styled from 'styled-components';
 import { space, SpaceProps, layout, LayoutProps } from 'styled-system';
 import css from '@styled-system/css';
 
-type HTMLBase = React.InputHTMLAttributes<HTMLInputElement>;
+type HTMLBase = React.DetailedHTMLProps<
+  React.InputHTMLAttributes<HTMLInputElement>,
+  HTMLInputElement
+>;
+
 type ModifiedHTMLBase = Omit<HTMLBase, 'width' | 'size' | 'height'>;
 
 export interface TextFieldProps
   extends ModifiedHTMLBase,
     SpaceProps,
     LayoutProps {
-  rows?: number;
   children?: string;
+  rows?: number;
   as?: React.ElementType | string;
 }
 
-const TextFieldRoot = styled.input<any>`
+const TextFieldRoot = styled.input<TextFieldProps>`
   background: transparent;
   border: 0;
   color: white;
@@ -51,10 +55,10 @@ const TextFieldRoot = styled.input<any>`
 
 const TextField = React.forwardRef(
   (props: TextFieldProps, ref: React.Ref<HTMLInputElement>): JSX.Element => {
-    const { rows, children, as, ...other } = props;
+    const { children, as, ...other } = props;
 
     return (
-      <TextFieldRoot ref={ref} rows={rows} as={as} {...other}>
+      <TextFieldRoot ref={ref} as={as} {...other}>
         {children}
       </TextFieldRoot>
     );

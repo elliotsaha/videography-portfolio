@@ -21,6 +21,11 @@ const ImageOverlay = styled.div`
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
   ${({ theme }) => theme.transition};
+  @media (max-width: ${({ theme }) => theme.breakpoints[0]}) {
+    ${({ theme }) => theme.transition};
+    visibility: visible;
+    opacity: 1;
+  }
 `;
 
 const ImageContainer = styled.div`
@@ -36,6 +41,12 @@ const ImageContainer = styled.div`
     ${({ theme }) => theme.transition};
     visibility: visible;
     opacity: 1;
+  }
+  width: 100%;
+  height: 100%;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints[0]}) {
+    width: 100vw;
   }
 `;
 
@@ -71,14 +82,28 @@ const ViewButton = styled.button`
 `;
 
 const FeaturedVideo = styled.iframe`
-  width: 36rem;
-  height: 22rem;
+  width: 30rem;
+  height: 20rem;
+  @media (max-width: ${({ theme }) => theme.breakpoints[3]}) {
+    width: 27.5rem;
+  }
+  @media (max-width: ${({ theme }) => theme.breakpoints[2]}) {
+    width: 37rem;
+  }
+  @media (max-width: ${({ theme }) => theme.breakpoints[1]}) {
+    width: 100%;
+  }
 `;
 
 const FeaturedFilmText = styled.p`
   max-width: 27.5rem;
   font-size: 1.2rem;
   line-height: 1.8rem;
+  margin-top: -1rem;
+  @media (max-width: ${({ theme }) => theme.breakpoints[2]}) {
+    margin-top: -1rem;
+    max-width: 37rem;
+  }
   ${css({
     fontFamily: 'body',
     color: 'text',
@@ -107,16 +132,17 @@ const Projects = () => {
   ];
 
   return (
-    <Layout>
+    <Layout title="Projects">
       <BackgroundEl>
         <Flex
+          pt="10rem"
           justifyContent="center"
           alignItems="center"
-          pb="5rem"
-          maxWidth="61.5rem"
-          ml="auto"
-          mr="auto"
-          pt="10rem"
+          pb="3rem"
+          mx="auto"
+          maxWidth={[null, null, null, '61rem', '69rem']}
+          px={['0rem', '3rem']}
+          flexDirection={['column', null, null, 'row']}
         >
           <FeaturedVideo
             src="https://www.youtube.com/embed/32hsGWID9Ug?showinfo=0&controls=0&rel=1&modestbranding=1"
@@ -124,7 +150,11 @@ const Projects = () => {
             frameBorder="0"
             allowFullScreen
           />
-          <Box mb="3rem" pl="3.25rem">
+          <Box
+            mb="3rem"
+            pl={['0rem', null, null, '4rem']}
+            px={['1.5rem', '0rem']}
+          >
             <Header as="h1" render="h2" color="white" uppercase>
               Featured Video
             </Header>
@@ -149,8 +179,13 @@ const Projects = () => {
         </Flex>
         <Flex justifyContent="center" alignItems="center" mt="2rem" pb="3rem">
           <Grid
-            gridTemplateColumns="320px 320px 320px"
-            gridTemplateRows="180px 180px 180px"
+            gridTemplateColumns={[
+              '100%',
+              '400px',
+              '320px 320px',
+              '320px 320px 320px',
+            ]}
+            gridAutoRows="180px"
             gridGap="0.75rem"
           >
             {videoIDs.map((i) => (
@@ -173,9 +208,9 @@ const Projects = () => {
                     alt="Youtube Video"
                     placeholder="blur"
                     blurDataURL={`https://img.youtube.com/vi/${i}/mqdefault.jpg`}
-                    width="320px"
-                    height="180px"
-                    quality={90}
+                    layout="fill"
+                    objectFit="cover"
+                    quality={100}
                   />
                 </ImageContainer>
               </Flex>

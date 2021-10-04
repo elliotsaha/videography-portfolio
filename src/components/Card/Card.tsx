@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import css from '@styled-system/css';
-import { Header } from '@/components';
+import { Header, Box } from '@/components';
 
 export interface CardProps {
   icon?: JSX.Element;
@@ -18,15 +18,14 @@ const CardRoot = styled.div`
     borderRadius: '1',
     borderColor: 'grey',
   })}
-  padding-left: 2rem;
 `;
 
 const CardBody = styled.div`
   font-size: 1rem;
   line-height: 1.25rem;
   padding-top: 1rem;
-  max-width: 19rem;
   padding-bottom: 3rem;
+  padding-right: 2rem;
   ${css({
     fontFamily: 'body',
   })}
@@ -42,7 +41,7 @@ const Price = styled.span`
 `;
 
 const IconContainer = styled.div`
-  width: 3rem;
+  width: 3.25rem;
   margin-top: 2rem;
   & > * {
     width: 100%;
@@ -57,12 +56,22 @@ const Card = (props: CardProps) => {
   const { icon, header, price, children } = props;
   return (
     <CardRoot>
-      <IconContainer>{icon}</IconContainer>
-      <Header color="white" as="h3" uppercase mb="0.7rem" mt="0.7rem">
-        {header}
-      </Header>
-      <Price>{price}</Price>
-      <CardBody>{children}</CardBody>
+      <Box pl="2rem">
+        <IconContainer>{icon}</IconContainer>
+        <Header
+          color="white"
+          as="h3"
+          uppercase
+          mb="0.7rem"
+          mt="0.7rem"
+          pr="1rem"
+          fontSize={['1.75rem', '2rem']}
+        >
+          {header}
+        </Header>
+        <Price>{price}</Price>
+        <CardBody>{children}</CardBody>
+      </Box>
     </CardRoot>
   );
 };
