@@ -93,7 +93,7 @@ const MobileMenu = styled.div<LayoutProps>`
     fontFamily: 'title',
     bg: 'background',
   })}
-  height: 15.5rem;
+  height: 18.25rem;
   width: 100%;
   position: absolute;
   top: 3rem;
@@ -163,6 +163,7 @@ const Navbar = () => {
         </Box>
         <LinkSection display={['none', null, null, 'flex']}>
           <Link href="/">Home</Link>
+          <Link href="/pricing">Pricing</Link>
           <Link href="/projects">Projects</Link>
           <Link href="/about">About</Link>
         </LinkSection>
@@ -182,6 +183,7 @@ const Navbar = () => {
         <MobileMenu display={mobileMenuActive ? 'block' : 'none'}>
           <VerticalLinkSection>
             <Link href="/">Home</Link>
+            <Link href="/pricing">Pricing</Link>
             <Link href="/projects">Projects</Link>
             <Link href="/about">About</Link>
           </VerticalLinkSection>
