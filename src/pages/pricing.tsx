@@ -7,6 +7,7 @@ import styled from 'styled-components';
 import css from '@styled-system/css';
 
 const BackgroundEl = styled.div`
+  min-height: 100vh;
   padding-top: 9rem;
   ${css({
     bg: 'background',
