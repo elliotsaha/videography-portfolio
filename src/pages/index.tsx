@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import {
   Layout,
@@ -22,7 +23,6 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import HouseRoundedIcon from '@mui/icons-material/HouseRounded';
 import { up, down } from 'styled-breakpoints';
 import toast from 'react-hot-toast';
-import { useEffect } from 'react';
 
 const AboveFold = styled.div`
   position: relative;
@@ -222,23 +222,12 @@ const SocialContainer = styled.div`
   }
 `;
 
-const Home = () => {
-  // youtube video IDs
-  const videoIDs = [
-    '4ilPPFw5owE',
-    'vln8CgYwTNw',
-    'm-HKKy2sLrs',
-    'fGtFW50TpZA',
-    'GNEO5WfKcYI',
-    'QSnU671Js-c',
-    'bLK4KanWTRs',
-    'HvQT3Hl44qE',
-    'Yv1Ui_Y3Ryw',
-    '32hsGWID9Ug',
-    'OWKj5xSlR80',
-    'ed56xTQ2JT0',
-    'XJgWxru0EQo',
-  ];
+const Home = ({ data }: { data: Record<string, any> }) => {
+  const [videoIDs, setVideoIDs] = useState([] as any);
+
+  useEffect(() => {
+    setVideoIDs(data);
+  }, [data]);
 
   const router = useRouter();
 
@@ -398,7 +387,7 @@ const Home = () => {
           </Flex>
         </BelowFold>
         <Box pb="7rem">
-          <Carousel array={videoIDs} />
+          {videoIDs.length !== 0 && <Carousel array={videoIDs?.items} />}
         </Box>
         <Flex
           justifyContent="center"
@@ -600,5 +589,15 @@ const Home = () => {
     </Layout>
   );
 };
+
+export async function getServerSideProps() {
+  const res = await fetch('http://localhost:3000/api/youtube');
+  const data = await res.json();
+  return {
+    props: {
+      data,
+    },
+  };
+}
 
 export default Home;

@@ -9,7 +9,7 @@ import Image from 'next/image';
 import { GlobalTheme } from '@/utils/UI';
 
 export interface CarouselProps {
-  array: Array<string>;
+  array: Array<Record<string, any>>;
 }
 
 const ImageOverlay = styled.div`
@@ -125,7 +125,7 @@ const IconButton = styled.button<SpaceProps>`
   ${space}
 `;
 
-const chunkArr = (array: Array<string>, chunk: number) => {
+const chunkArr = (array: Array<Record<string, any>>, chunk: number) => {
   const resArr = [];
   for (let i = 0, j = array.length; i < j; i += chunk) {
     resArr.push(array.slice(i, i + chunk));
@@ -181,6 +181,7 @@ const Carousel = (props: CarouselProps) => {
     }
   };
 
+  console.log(chunkedArr[idx]);
   return (
     <Flex flexDirection="column" justifyContent="center" alignItems="center">
       <Box width={['100%', 'auto']}>
@@ -201,12 +202,12 @@ const Carousel = (props: CarouselProps) => {
         </Box>
         <ChunkedMapList>
           {chunkedArr[idx].map((i) => (
-            <ImageContainer key={i}>
+            <ImageContainer key={i.id}>
               <ImageOverlay>
                 <ViewButton
                   onClick={() =>
                     window.open(
-                      `https://www.youtube.com/watch?v=${i}`,
+                      `https://www.youtube.com/watch?v=${i.snippet.resourceId.videoId}`,
                       '_blank',
                     )
                   }
@@ -215,10 +216,10 @@ const Carousel = (props: CarouselProps) => {
                 </ViewButton>
               </ImageOverlay>
               <Image
-                src={`https://img.youtube.com/vi/${i}/mqdefault.jpg`}
-                alt="Youtube Video"
+                src={i.snippet.thumbnails.medium.url}
+                alt={i.snippet.title}
                 placeholder="blur"
-                blurDataURL={`https://img.youtube.com/vi/${i}/mqdefault.jpg`}
+                blurDataURL={i.snippet.thumbnails.medium.url}
                 layout="fill"
                 objectFit="cover"
                 quality={100}

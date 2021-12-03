@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { Layout, Flex, Grid, Header, Box } from '@/components';
 import { darkenColor } from '@/utils/ColorManipulation';
 import Image from 'next/image';
@@ -110,27 +111,12 @@ const FeaturedFilmText = styled.p`
   })}
 `;
 
-const Projects = () => {
-  const videoIDs = [
-    'vln8CgYwTNw',
-    'HvQT3Hl44qE',
-    '4ilPPFw5owE',
-    'ed56xTQ2JT0',
-    'Yv1Ui_Y3Ryw',
-    'm-HKKy2sLrs',
-    'QSnU671Js-c',
-    'GNEO5WfKcYI',
-    'OWKj5xSlR80',
-    'bLK4KanWTRs',
-    '7yb29hSMz80',
-    'fGtFW50TpZA',
-    'XJgWxru0EQo',
-    'VbiUDxORtWA',
-    'pu8iUb1VZv4',
-    'tWgo5yfnigo',
-    'LM3xgo-_ocY',
-    '32hsGWID9Ug',
-  ];
+const Projects = ({ data }: { data: Record<string, any> }) => {
+  const [videoIDs, setVideoIDs] = useState([] as any);
+
+  useEffect(() => {
+    setVideoIDs(data);
+  }, [data]);
 
   return (
     <Layout title="Projects">
@@ -189,33 +175,34 @@ const Projects = () => {
             gridAutoRows="180px"
             gridGap="0.75rem"
           >
-            {videoIDs.map((i) => (
-              <Flex justifyContent="center" alignItems="center" key={i}>
-                <ImageContainer>
-                  <ImageOverlay>
-                    <ViewButton
-                      onClick={() =>
-                        window.open(
-                          `https://www.youtube.com/watch?v=${i}`,
-                          '_blank',
-                        )
-                      }
-                    >
-                      View
-                    </ViewButton>
-                  </ImageOverlay>
-                  <Image
-                    src={`https://img.youtube.com/vi/${i}/mqdefault.jpg`}
-                    alt="Youtube Video"
-                    placeholder="blur"
-                    blurDataURL={`https://img.youtube.com/vi/${i}/mqdefault.jpg`}
-                    layout="fill"
-                    objectFit="cover"
-                    quality={100}
-                  />
-                </ImageContainer>
-              </Flex>
-            ))}
+            {videoIDs.length !== 0 &&
+              videoIDs.items.map((i: any) => (
+                <Flex justifyContent="center" alignItems="center" key={i}>
+                  <ImageContainer>
+                    <ImageOverlay>
+                      <ViewButton
+                        onClick={() =>
+                          window.open(
+                            `https://www.youtube.com/watch?v=${i.snippet.resourceId.videoId}`,
+                            '_blank',
+                          )
+                        }
+                      >
+                        View
+                      </ViewButton>
+                    </ImageOverlay>
+                    <Image
+                      src={i.snippet.thumbnails.medium.url}
+                      alt={i.snippet.title}
+                      placeholder="blur"
+                      blurDataURL={i.snippet.thumbnails.medium.url}
+                      layout="fill"
+                      objectFit="cover"
+                      quality={100}
+                    />
+                  </ImageContainer>
+                </Flex>
+              ))}
           </Grid>
         </Flex>
       </BackgroundEl>
@@ -223,4 +210,13 @@ const Projects = () => {
   );
 };
 
+export async function getServerSideProps() {
+  const res = await fetch('http://localhost:3000/api/youtube');
+  const data = await res.json();
+  return {
+    props: {
+      data,
+    },
+  };
+}
 export default Projects;
