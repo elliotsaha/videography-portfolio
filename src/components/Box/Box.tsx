@@ -33,6 +33,7 @@ export interface BoxProps
   className?: string;
 }
 
+// Add mostly all props from styled-system
 const BoxStyle = styled.div<BoxProps>`
   ${color}
   ${space};

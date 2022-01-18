@@ -1,4 +1,5 @@
-import { darkenColor } from '@/utils/ColorManipulation';
+import { GlobalTheme } from '@/utils/UI';
+import { darken } from 'polished';
 import Image from 'next/image';
 import styled from 'styled-components';
 import css from '@styled-system/css';
@@ -83,12 +84,12 @@ const ViewButton = styled.button`
     border: '0',
     borderColor: 'white',
     '&:hover': {
-      color: darkenColor('#FFFFFF', 0.15),
-      borderColor: darkenColor('#FFFFFF', 0.15),
+      color: darken(0.15, '#FFFFFF'),
+      borderColor: darken(0.15, '#FFFFFF'),
     },
     '&:active': {
-      color: darkenColor('#FFFFFF', 0.25),
-      borderColor: darkenColor('#FFFFFF', 0.25),
+      color: darken(0.25, '#FFFFFF'),
+      borderColor: darken(0.25, '#FFFFFF'),
     },
   })}
 `;

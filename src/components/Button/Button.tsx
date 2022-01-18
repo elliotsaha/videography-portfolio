@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { contrastText, darkenColor } from '@/utils/ColorManipulation';
+import { darken } from 'polished';
+import { GlobalTheme } from '@/utils/UI';
 import {
   space,
   SpaceProps,
@@ -66,16 +67,16 @@ const ButtonRoot = styled.button<ButtonProps>`
     variants: {
       solid: {
         bg: 'primary',
-        color: contrastText('primary', true),
+        color: 'white',
         border: '0',
         borderColor: 'primary',
         '&:hover': {
-          bg: darkenColor('primary', 0.2, true),
-          borderColor: darkenColor('primary', 0.2, true),
+          bg: darken(0.04, GlobalTheme.colors.primary),
+          borderColor: darken(0.04, GlobalTheme.colors.primary),
         },
         '&:active': {
-          bg: darkenColor('primary', 0.3, true),
-          borderColor: darkenColor('primary', 0.3, true),
+          bg: darken(0.06, GlobalTheme.colors.primary),
+          borderColor: darken(0.06, GlobalTheme.colors.primary),
         },
       },
       outline: {
@@ -84,12 +85,12 @@ const ButtonRoot = styled.button<ButtonProps>`
         border: '0',
         borderColor: 'primary',
         '&:hover': {
-          color: darkenColor('primary', 0.15, true),
-          borderColor: darkenColor('primary', 0.15, true),
+          color: darken(0.04, GlobalTheme.colors.primary),
+          borderColor: darken(0.04, GlobalTheme.colors.primary),
         },
         '&:active': {
-          color: darkenColor('primary', 0.25, true),
-          borderColor: darkenColor('primary', 0.25, true),
+          color: darken(0.06, GlobalTheme.colors.primary),
+          borderColor: darken(0.06, GlobalTheme.colors.primary),
         },
       },
     },

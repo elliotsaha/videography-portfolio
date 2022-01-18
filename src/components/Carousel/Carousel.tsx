@@ -3,58 +3,13 @@ import { Flex, Box, Header, YoutubeThumbnail } from '@/components';
 import { space, SpaceProps } from 'styled-system';
 import styled from 'styled-components';
 import css from '@styled-system/css';
-import { darkenColor } from '@/utils/ColorManipulation';
+import { darken } from 'polished';
 import { BiChevronLeft, BiChevronRight } from 'react-icons/bi';
-import Image from 'next/image';
 import { GlobalTheme } from '@/utils/UI';
 
 export interface CarouselProps {
   array: Array<Record<string, any>>;
 }
-
-const ImageOverlay = styled.div`
-  visibility: hidden;
-  opacity: 0;
-  position: absolute;
-  z-index: 2;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  ${({ theme }) => theme.transition};
-  @media (max-width: ${({ theme }) => theme.breakpoints[0]}) {
-    ${({ theme }) => theme.transition};
-    visibility: visible;
-    opacity: 1;
-  }
-`;
-
-const ImageContainer = styled.div`
-  position: relative;
-  ${css({
-    borderRadius: '0',
-    borderBottomLeftRadius: '1',
-    borderBottomRightRadius: '1',
-  })}
-  overflow: hidden;
-  ${({ theme }) => theme.transition};
-  &:hover ${ImageOverlay} {
-    ${({ theme }) => theme.transition};
-    visibility: visible;
-    opacity: 1;
-  }
-  height: 220px;
-  width: 22rem;
-  @media (max-width: ${({ theme }) => theme.breakpoints[3]}) {
-    width: 18.5rem;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints[0]}) {
-    width: 100%;
-    height: 250px;
-    border-radius: 0;
-  }
-`;
-
 const ChunkedMapList = styled.div`
   display: flex;
   flex-direction: row;
@@ -63,37 +18,6 @@ const ChunkedMapList = styled.div`
     margin-left: 0.5rem;
     margin-right: 0.5rem;
   }
-`;
-
-const ViewButton = styled.button`
-  text-transform: uppercase;
-  font-weight: 500;
-  ${({ theme }) => theme.transition};
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  ${css({
-    borderRadius: '3',
-    fontFamily: 'title',
-    fontSize: '1',
-    p: '0.5rem',
-    pr: '1.2rem',
-    pl: '1.2rem',
-    bg: 'transparent',
-    color: 'white',
-    border: '0',
-    borderColor: 'white',
-    '&:hover': {
-      color: darkenColor('#FFFFFF', 0.15),
-      borderColor: darkenColor('#FFFFFF', 0.15),
-    },
-    '&:active': {
-      color: darkenColor('#FFFFFF', 0.25),
-      borderColor: darkenColor('#FFFFFF', 0.25),
-    },
-  })}
 `;
 
 const IconButton = styled.button<SpaceProps>`
@@ -107,12 +31,12 @@ const IconButton = styled.button<SpaceProps>`
     border: '0',
     borderColor: 'primary',
     '&:hover': {
-      color: darkenColor('primary', 0.15, true),
-      borderColor: darkenColor('primary', 0.15, true),
+      color: darken(0.04, GlobalTheme.colors.primary),
+      borderColor: darken(0.04, GlobalTheme.colors.primary),
     },
     '&:active': {
-      color: darkenColor('primary', 0.25, true),
-      borderColor: darkenColor('primary', 0.25, true),
+      color: darken(0.06, GlobalTheme.colors.primary),
+      borderColor: darken(0.06, GlobalTheme.colors.primary),
     },
   })}
   display: flex;
