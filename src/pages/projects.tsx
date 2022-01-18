@@ -1,115 +1,12 @@
 import { useEffect, useState } from 'react';
-import { Layout, Flex, Grid, Header, Box } from '@/components';
-import { darkenColor } from '@/utils/ColorManipulation';
-import Image from 'next/image';
-import styled from 'styled-components';
-import css from '@styled-system/css';
-
-const BackgroundEl = styled.div`
-  ${css({
-    bg: 'background',
-    color: 'white',
-  })}
-  min-height: 100vh;
-`;
-
-const ImageOverlay = styled.div`
-  visibility: hidden;
-  opacity: 0;
-  position: absolute;
-  z-index: 2;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  ${({ theme }) => theme.transition};
-  @media (max-width: ${({ theme }) => theme.breakpoints[0]}) {
-    ${({ theme }) => theme.transition};
-    visibility: visible;
-    opacity: 1;
-  }
-`;
-
-const ImageContainer = styled.div`
-  position: relative;
-  ${css({
-    borderRadius: '0',
-    borderBottomLeftRadius: '1',
-    borderBottomRightRadius: '1',
-  })}
-  overflow: hidden;
-  ${({ theme }) => theme.transition};
-  &:hover ${ImageOverlay} {
-    ${({ theme }) => theme.transition};
-    visibility: visible;
-    opacity: 1;
-  }
-  width: 100%;
-  height: 100%;
-
-  @media (max-width: ${({ theme }) => theme.breakpoints[0]}) {
-    width: 100vw;
-  }
-`;
-
-const ViewButton = styled.button`
-  text-transform: uppercase;
-  font-weight: 500;
-  ${({ theme }) => theme.transition};
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  ${css({
-    borderRadius: '3',
-    fontFamily: 'title',
-    fontSize: '1',
-    p: '0.5rem',
-    pr: '1.2rem',
-    pl: '1.2rem',
-    bg: 'transparent',
-    color: 'white',
-    border: '0',
-    borderColor: 'white',
-    '&:hover': {
-      color: darkenColor('#FFFFFF', 0.15),
-      borderColor: darkenColor('#FFFFFF', 0.15),
-    },
-    '&:active': {
-      color: darkenColor('#FFFFFF', 0.25),
-      borderColor: darkenColor('#FFFFFF', 0.25),
-    },
-  })}
-`;
-
-const FeaturedVideo = styled.iframe`
-  width: 30rem;
-  height: 20rem;
-  @media (max-width: ${({ theme }) => theme.breakpoints[3]}) {
-    width: 27.5rem;
-  }
-  @media (max-width: ${({ theme }) => theme.breakpoints[2]}) {
-    width: 37rem;
-  }
-  @media (max-width: ${({ theme }) => theme.breakpoints[1]}) {
-    width: 100%;
-  }
-`;
-
-const FeaturedFilmText = styled.p`
-  max-width: 27.5rem;
-  font-size: 1.2rem;
-  line-height: 1.8rem;
-  margin-top: -1rem;
-  @media (max-width: ${({ theme }) => theme.breakpoints[2]}) {
-    margin-top: -1rem;
-    max-width: 37rem;
-  }
-  ${css({
-    fontFamily: 'body',
-    color: 'text',
-  })}
-`;
+import {
+  Layout,
+  Flex,
+  Grid,
+  YoutubeThumbnail,
+  Box,
+  FeaturedVideoSection,
+} from '@/components';
 
 const Projects = ({ data }: { data: Record<string, any> }) => {
   const [videoIDs, setVideoIDs] = useState([] as any);
@@ -120,50 +17,8 @@ const Projects = ({ data }: { data: Record<string, any> }) => {
 
   return (
     <Layout title="Projects">
-      <BackgroundEl>
-        <Flex
-          pt="10rem"
-          justifyContent="center"
-          alignItems="center"
-          pb="3rem"
-          mx="auto"
-          maxWidth={[null, null, null, '61rem', '69rem']}
-          px={['0rem', '3rem']}
-          flexDirection={['column', null, null, 'row']}
-        >
-          <FeaturedVideo
-            src="https://www.youtube.com/embed/32hsGWID9Ug?showinfo=0&controls=0&rel=1&modestbranding=1"
-            title="YouTube video player"
-            frameBorder="0"
-            allowFullScreen
-          />
-          <Box
-            mb="3rem"
-            pl={['0rem', null, null, '4rem']}
-            px={['1.5rem', '0rem']}
-          >
-            <Header as="h1" render="h2" color="white" uppercase>
-              Featured Video
-            </Header>
-
-            <Header
-              as="h2"
-              render="h5"
-              color="primary"
-              mt="-1.5rem"
-              pb="1.75rem"
-              uppercase
-            >
-              Garden Party (University of British Columbia)
-            </Header>
-            <FeaturedFilmText>
-              Garden Party is the grand opening party of the school year. It’s
-              crowded, there’s music and the goal of the video was to capture
-              the reunion of people after the pandemic and get people excited
-              about the upcoming year.
-            </FeaturedFilmText>
-          </Box>
-        </Flex>
+      <Box pt="12" maxWidth="67.5rem" mx="auto">
+        <FeaturedVideoSection />
         <Flex justifyContent="center" alignItems="center" mt="2rem" pb="3rem">
           <Grid
             gridTemplateColumns={[
@@ -178,34 +33,12 @@ const Projects = ({ data }: { data: Record<string, any> }) => {
             {videoIDs.length !== 0 &&
               videoIDs.items.map((i: any) => (
                 <Flex justifyContent="center" alignItems="center" key={i}>
-                  <ImageContainer>
-                    <ImageOverlay>
-                      <ViewButton
-                        onClick={() =>
-                          window.open(
-                            `https://www.youtube.com/watch?v=${i.snippet.resourceId.videoId}`,
-                            '_blank',
-                          )
-                        }
-                      >
-                        View
-                      </ViewButton>
-                    </ImageOverlay>
-                    <Image
-                      src={i.snippet.thumbnails.medium.url}
-                      alt={i.snippet.title}
-                      placeholder="blur"
-                      blurDataURL={i.snippet.thumbnails.medium.url}
-                      layout="fill"
-                      objectFit="cover"
-                      quality={100}
-                    />
-                  </ImageContainer>
+                  <YoutubeThumbnail setSize={false} youtubeData={i} />
                 </Flex>
               ))}
           </Grid>
         </Flex>
-      </BackgroundEl>
+      </Box>
     </Layout>
   );
 };

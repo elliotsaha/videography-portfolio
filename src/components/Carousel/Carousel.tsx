@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Flex, Box, Header } from '@/components';
+import { Flex, Box, Header, YoutubeThumbnail } from '@/components';
 import { space, SpaceProps } from 'styled-system';
 import styled from 'styled-components';
 import css from '@styled-system/css';
@@ -126,7 +126,13 @@ const IconButton = styled.button<SpaceProps>`
 `;
 
 const chunkArr = (array: Array<Record<string, any>>, chunk: number) => {
+  // get closest possible number divisble by chunk that is lower than array.length
+  const divisbleArrayLen = array.length - (array.length % chunk);
+  array = array.slice(0, divisbleArrayLen);
+
   const resArr = [];
+  // i is incremented by chunk amount on each iteration
+  // a slice from i's current position and i's next position is pushed to resArr
   for (let i = 0, j = array.length; i < j; i += chunk) {
     resArr.push(array.slice(i, i + chunk));
   }
@@ -139,6 +145,7 @@ const Carousel = (props: CarouselProps) => {
   const [chunkNum, setChunkNum] = useState(1);
 
   useEffect(() => {
+    // change the number of carousel items visible at a time dependent on screen width
     const breakpoints: number[] = [];
 
     GlobalTheme.breakpoints.map((i: string): null => {
@@ -165,6 +172,9 @@ const Carousel = (props: CarouselProps) => {
 
   const [idx, setIdx] = useState(0); // index position for chunkedArr
 
+  // if on the first carousel item and prev function is called:
+  // reset to last carousel item, otherwise:
+  // decrement carousel item index by 1
   const prev = () => {
     if (idx === 0) {
       setIdx(chunkedArr.length - 1);
@@ -173,6 +183,9 @@ const Carousel = (props: CarouselProps) => {
     }
   };
 
+  // if on the last carousel item and next function is called:
+  // reset to first carousel item, otherwise:
+  // increment carousel item index by 1
   const next = () => {
     if (idx === chunkedArr.length - 1) {
       setIdx(0);
@@ -181,7 +194,6 @@ const Carousel = (props: CarouselProps) => {
     }
   };
 
-  console.log(chunkedArr[idx]);
   return (
     <Flex flexDirection="column" justifyContent="center" alignItems="center">
       <Box width={['100%', 'auto']}>
@@ -202,29 +214,11 @@ const Carousel = (props: CarouselProps) => {
         </Box>
         <ChunkedMapList>
           {chunkedArr[idx].map((i) => (
-            <ImageContainer key={i.id}>
-              <ImageOverlay>
-                <ViewButton
-                  onClick={() =>
-                    window.open(
-                      `https://www.youtube.com/watch?v=${i.snippet.resourceId.videoId}`,
-                      '_blank',
-                    )
-                  }
-                >
-                  View
-                </ViewButton>
-              </ImageOverlay>
-              <Image
-                src={i.snippet.thumbnails.medium.url}
-                alt={i.snippet.title}
-                placeholder="blur"
-                blurDataURL={i.snippet.thumbnails.medium.url}
-                layout="fill"
-                objectFit="cover"
-                quality={100}
-              />
-            </ImageContainer>
+            <YoutubeThumbnail
+              youtubeData={i}
+              setSize
+              key={i.snippet.resourceId.videoId}
+            />
           ))}
         </ChunkedMapList>
 

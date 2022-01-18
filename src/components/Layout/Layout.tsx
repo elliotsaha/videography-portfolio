@@ -1,4 +1,5 @@
-import { ThemeProvider } from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components';
+import css from '@styled-system/css';
 import { GlobalTheme } from '@/utils/UI';
 import { Navbar } from '@/components';
 import { Toaster } from 'react-hot-toast';
@@ -8,6 +9,12 @@ interface LayoutProps {
   children: React.ReactNode;
   title: string;
 }
+
+const Background = styled.div`
+  ${css({
+    bg: 'background',
+  })}
+`;
 
 const Layout = (props: LayoutProps) => {
   const { children, title } = props;
@@ -19,7 +26,7 @@ const Layout = (props: LayoutProps) => {
       />
       <ThemeProvider theme={GlobalTheme}>
         <Navbar />
-        {children}
+        <Background>{children}</Background>
       </ThemeProvider>
       <Toaster />
     </>
