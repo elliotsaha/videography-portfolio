@@ -13,17 +13,18 @@ import {
   BorderProps,
 } from 'styled-system';
 
-type HTMLBase = React.HTMLAttributes<HTMLDivElement>;
+type HTMLBase = Omit<React.HTMLAttributes<HTMLDivElement>, 'color'>;
 
 export interface FlexProps
   extends HTMLBase,
     FlexboxProps,
     SpaceProps,
     LayoutProps,
-    ColorProps,
+    Omit<ColorProps, 'color'>,
     BorderProps {
   children?: React.ReactNode;
   className?: string;
+  color?: string;
 }
 
 const FlexStyle = styled.div`
