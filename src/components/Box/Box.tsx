@@ -15,6 +15,8 @@ import {
   PositionProps,
   shadow,
   ShadowProps,
+  grid,
+  GridProps,
 } from 'styled-system';
 
 type HTMLBase = React.HTMLAttributes<HTMLDivElement>;
@@ -27,7 +29,8 @@ export interface BoxProps
     BackgroundProps,
     BorderProps,
     PositionProps,
-    ShadowProps {
+    ShadowProps,
+    GridProps {
   color?: string;
   as?: React.ElementType | string;
   className?: string;
@@ -42,6 +45,7 @@ const BoxStyle = styled.div<BoxProps>`
   ${background};
   ${position};
   ${shadow};
+  ${grid};
 `;
 
 const Box = React.forwardRef(

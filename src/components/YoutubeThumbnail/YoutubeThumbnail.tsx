@@ -1,4 +1,3 @@
-import { GlobalTheme } from '@/utils/UI';
 import { darken } from 'polished';
 import Image from 'next/image';
 import styled from 'styled-components';

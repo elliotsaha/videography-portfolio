@@ -72,35 +72,6 @@ const AboveFoldCTA = styled.div`
   text-align: center;
 `;
 
-const ContactHeadshotContainer = styled.div`
-  ${css({
-    borderRadius: '2',
-  })}
-  overflow: hidden;
-  position: relative;
-  width: 28rem;
-  height: 41rem;
-  margin-top: 2rem;
-  margin-left: 6rem;
-  @media (max-width: ${({ theme }) => theme.breakpoints[3]}) {
-    margin-left: 2.5rem;
-    width: 27rem;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints[2]}) {
-    width: 29rem;
-    height: 40rem;
-    margin-left: 0;
-    margin-bottom: 0.75rem;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints[0]}) {
-    width: 100%;
-    height: 17rem;
-    border-radius: 0;
-  }
-`;
-
 const SocialContainer = styled.div`
   margin-left: auto;
   margin-right: auto;

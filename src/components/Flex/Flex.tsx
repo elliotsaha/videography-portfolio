@@ -4,9 +4,13 @@ import {
   flexbox,
   space,
   layout,
+  color,
+  border,
   LayoutProps,
   SpaceProps,
   FlexboxProps,
+  ColorProps,
+  BorderProps,
 } from 'styled-system';
 
 type HTMLBase = React.HTMLAttributes<HTMLDivElement>;
@@ -15,7 +19,9 @@ export interface FlexProps
   extends HTMLBase,
     FlexboxProps,
     SpaceProps,
-    LayoutProps {
+    LayoutProps,
+    ColorProps,
+    BorderProps {
   children?: React.ReactNode;
   className?: string;
 }
@@ -25,6 +31,8 @@ const FlexStyle = styled.div`
   ${flexbox};
   ${space};
   ${layout};
+  ${color};
+  ${border};
 `;
 
 const Flex = React.forwardRef(
