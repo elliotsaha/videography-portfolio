@@ -62,6 +62,7 @@
   "devDependencies": {
     "@commitlint/cli": "13.1.0",
     "@commitlint/config-conventional": "13.1.0",
+    "@netlify/plugin-nextjs": "4.2.2",
     "@types/node": "14.17.15",
     "@types/react": "17.0.20",
     "@types/react-dom": "17.0.9",
