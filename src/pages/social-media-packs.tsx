@@ -56,8 +56,8 @@ const SocialMediaPacks = () => {
       icon: <AutoGraphOutlinedIcon />,
       iconColor: '#CD7F32',
       assets: [
-        '1 Youtube video edit',
-        'Unlimited revisions per week',
+        '1 Youtube video edit per week',
+        '2 revisions per week',
         '6 Tiktoks repurposed from past content per week',
       ],
     },
@@ -67,7 +67,7 @@ const SocialMediaPacks = () => {
       icon: <EmojiEventsOutlinedIcon />,
       iconColor: '#FFD700',
       assets: [
-        '2 Youtube video edits',
+        '2 Youtube video edits per week',
         'Unlimited revisions per week',
         '12 Tiktoks repurposed from past content per week',
         'Hashtag research and scheduling on Tiktok so that your Tiktok account runs without you ever having to look at it',
@@ -79,7 +79,7 @@ const SocialMediaPacks = () => {
       icon: <MilitaryTechOutlinedIcon />,
       iconColor: '#B9F2FF',
       assets: [
-        '4 Youtube video edits',
+        '4 Youtube video edits per week',
         'Unlimited revisions per week',
         '24 Tiktoks repurposed from past content per week',
         'Hashtag research and scheduling on Tiktok so that your Tiktok account runs without you ever having to look at it',

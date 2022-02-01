@@ -13,7 +13,6 @@ import {
   FeaturedVideoSection,
 } from '@/components';
 import styled from 'styled-components';
-import css from '@styled-system/css';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import FacebookIcon from '@mui/icons-material/Facebook';
