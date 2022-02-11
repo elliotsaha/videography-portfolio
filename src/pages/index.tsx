@@ -175,7 +175,9 @@ const Home = ({ data }: { data: Record<string, any> }) => {
         {videoIDs.length !== 0 && <Carousel array={videoIDs?.items} />}
       </Box>
       <FeaturedVideoSection />
-      <PricingSection />
+      <Box mt="-3rem">
+        <PricingSection />
+      </Box>
       <ContactSection />
     </Layout>
   );

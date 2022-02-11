@@ -112,8 +112,8 @@ const AboutSection = () => (
           <br />
           <br />
           Looking to work with clients to produce the best quality content!
-          Whether you need quick one-off projects or looking build a long term
-          relationship, I am ready to create the best work for you!
+          Whether you need quick one-off projects or looking to build a long
+          term relationship, I am ready to create the best work for you!
           <br />
           <br />
           <Flex pb="1rem" alignItems="start" flexDirection={['column', 'row']}>
