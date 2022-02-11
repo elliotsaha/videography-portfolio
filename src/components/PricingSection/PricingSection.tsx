@@ -73,9 +73,9 @@ const PricingSection = () => {
       <Grid
         gridTemplateColumns={['1fr', null, '1fr 1fr']}
         gridTemplateRows={[
-          '1.5fr 1fr 1fr',
+          '1.5fr 1fr 1fr 1fr 1fr',
           null,
-          '1fr 1fr 1fr',
+          '1fr 1fr 1fr 1fr 1fr',
           '1.5fr 1fr 1fr',
         ]}
         gridGap="2rem"
