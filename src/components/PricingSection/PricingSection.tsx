@@ -138,7 +138,7 @@ const PricingSection = () => {
         </Card>
         <Card
           icon={<InsertPhotoRoundedIcon />}
-          header="Corperate Advertisements"
+          header="Corporate Advertisements"
           price="$600"
         >
           These are ads, corporate highlights, interviews, etc. Generally these
