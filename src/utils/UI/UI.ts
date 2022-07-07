@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
-export const GlobalTheme = {
+export const GlobalTheme: any = {
   space: [
     '0rem',
     '0.25rem',
@@ -57,6 +57,13 @@ export const GlobalTheme = {
                -ms-transition: all 0.15s ease-in-out;
                -o-transition: all 0.15s ease-in-out;`,
 };
+
+/* eslint-disable */
+GlobalTheme.breakpoints.sm = GlobalTheme.breakpoints[0];
+GlobalTheme.breakpoints.md = GlobalTheme.breakpoints[1];
+GlobalTheme.breakpoints.lg = GlobalTheme.breakpoints[2];
+GlobalTheme.breakpoints.xl = GlobalTheme.breakpoints[3];
+/* eslint-enable */
 
 export const GlobalReset = createGlobalStyle`
   html {

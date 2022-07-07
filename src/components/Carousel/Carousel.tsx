@@ -72,7 +72,7 @@ const Carousel = (props: CarouselProps) => {
     // change the number of carousel items visible at a time dependent on screen width
     const breakpoints: number[] = [];
 
-    GlobalTheme.breakpoints.map((i: string): null => {
+    Object.values(GlobalTheme.breakpoints).map((i: string): null => {
       const intBreakpoint = parseInt(i.split('px').shift() as string, 10);
       breakpoints.push(intBreakpoint);
       return null;

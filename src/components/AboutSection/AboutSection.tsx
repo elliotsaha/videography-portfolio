@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import css from '@styled-system/css';
 import Image from 'next/image';
 
-const HeadshotPara = styled.p`
+const HeadshotPara = styled.div`
   font-size: 1.2rem;
   line-height: 1.8rem;
   ${css({
@@ -14,7 +14,7 @@ const HeadshotPara = styled.p`
   ${css({
     fontFamily: 'body',
   })}
-  ${down('0')} {
+  ${down('sm')} {
     font-size: 0.95rem;
     line-height: 1.25rem;
     max-width: 26.5rem;
@@ -28,10 +28,10 @@ const AboutContainer = styled.div`
   padding: 3rem;
   padding-top: 6rem;
   padding-bottom: 6rem;
-  ${up('3')} {
+  ${up('xl')} {
     padding: 5rem;
   }
-  ${down('0')} {
+  ${down('sm')} {
     padding: 0;
     padding-top: 6rem;
     padding-bottom: 6rem;
@@ -48,22 +48,22 @@ const HeadshotContainer = styled.div`
   width: 30rem;
   margin-right: 2.5rem;
   height: 40rem;
-  ${up('2')} {
+  ${up('lg')} {
     height: 98%;
   }
-  ${down('2')} {
+  ${down('lg')} {
     margin-bottom: 4rem;
   }
-  ${down('0')} {
+  ${down('sm')} {
     width: 100%;
     border-radius: 0;
   }
-  ${up('0')} {
+  ${up('sm')} {
     ${css({
       borderRadius: '2',
     })}
   }
-  ${up('3')} {
+  ${up('xl')} {
     margin-right: 7.5rem;
   }
 

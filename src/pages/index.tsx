@@ -183,7 +183,7 @@ const Home = ({ data }: { data: Record<string, any> }) => {
   );
 };
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/youtube`);
   const data = await res.json();
 
