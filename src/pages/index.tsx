@@ -12,6 +12,7 @@ import {
   ContactSection,
   FeaturedVideoSection,
 } from '@/components';
+import { GlobalTheme } from '@/utils/UI';
 import styled from 'styled-components';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
@@ -87,6 +88,30 @@ const SocialContainer = styled.div`
 const Home = ({ data }: { data: Record<string, any> }) => {
   // get data from server-side, add to state on first render
   const [videoIDs, setVideoIDs] = useState([] as any);
+
+  const [loadVideo, setLoadVideo] = useState(false);
+
+  useEffect(() => {
+    function handleResize() {
+      if (
+        window.innerWidth >
+        parseInt(GlobalTheme.breakpoints.md.split('px').shift(), 10)
+      ) {
+        setLoadVideo(true);
+      } else {
+        setLoadVideo(false);
+      }
+    }
+
+    // Add event listener
+    window.addEventListener('resize', handleResize);
+
+    // Call handler right away so state gets updated with initial window size
+    handleResize();
+
+    // Remove event listener on cleanup
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   useEffect(() => {
     setVideoIDs(data);
@@ -165,10 +190,13 @@ const Home = ({ data }: { data: Record<string, any> }) => {
             </Button>
           </AboveFoldCTA>
         </Overlay>
-        <CoverVideo muted loop autoPlay playsInline controls={false}>
-          <source src="/AboveFold.mp4" type="video/mp4" />
-        </CoverVideo>
-        <CoverMobileImg src="/AboveFoldImg.png" alt="Cover" />
+        {loadVideo ? (
+          <CoverVideo muted loop autoPlay playsInline controls={false}>
+            <source src="/AboveFold.mp4" type="video/mp4" />
+          </CoverVideo>
+        ) : (
+          <CoverMobileImg src="/AboveFoldImg.png" alt="Cover" />
+        )}
       </AboveFold>
       <AboutSection />
       <Box pb="7rem">

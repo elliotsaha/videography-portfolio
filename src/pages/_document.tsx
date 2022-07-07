@@ -44,6 +44,10 @@ export default class MyDocument extends Document {
     return (
       <Html>
         <Head>
+          <link rel="preconnect" href="https://www.youtube.com" />
+          <link rel="preconnect" href="https://i.ytimg.com" />
+          <link rel="preconnect" href="https://i9.ytimg.com" />
+          <link rel="preconnect" href="https://s.ytimg.com" />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link
             rel="preconnect"
