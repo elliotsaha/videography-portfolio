@@ -6,7 +6,6 @@ export interface CardProps {
   icon?: JSX.Element;
   header?: string;
   children?: React.ReactNode;
-  price?: string;
 }
 
 const CardRoot = styled.div`
@@ -23,7 +22,7 @@ const CardRoot = styled.div`
 const CardBody = styled.div`
   font-size: 1rem;
   line-height: 1.25rem;
-  padding-top: 1rem;
+  padding-top: 0.2rem;
   padding-bottom: 3rem;
   padding-right: 2rem;
   ${css({
@@ -31,19 +30,11 @@ const CardBody = styled.div`
   })}
 `;
 
-const Price = styled.span`
-  font-size: 1.3rem;
-  ${css({
-    fontFamily: 'body',
-    fontWeight: 700,
-    color: 'primary',
-  })}
-`;
-
 const IconContainer = styled.div`
   width: 3.25rem;
   font-size: 3.25rem;
   margin-top: 2rem;
+  margin-bottom: -0.7rem;
   & svg {
     font-size: 3.25rem;
     width: 100%;
@@ -55,7 +46,7 @@ const IconContainer = styled.div`
 `;
 
 const Card = (props: CardProps) => {
-  const { icon, header, price, children } = props;
+  const { icon, header, children } = props;
   return (
     <CardRoot>
       <Box pl="2rem">
@@ -71,7 +62,6 @@ const Card = (props: CardProps) => {
         >
           {header}
         </Header>
-        <Price>{price}</Price>
         <CardBody>{children}</CardBody>
       </Box>
     </CardRoot>

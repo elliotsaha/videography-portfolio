@@ -25,6 +25,7 @@ export interface FlexProps
   children?: React.ReactNode;
   className?: string;
   color?: string;
+  css?: any;
 }
 
 const FlexStyle = styled.div`

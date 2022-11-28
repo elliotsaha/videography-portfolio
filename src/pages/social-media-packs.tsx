@@ -4,6 +4,7 @@ import css from '@styled-system/css';
 import AutoGraphOutlinedIcon from '@mui/icons-material/AutoGraphOutlined';
 import MilitaryTechOutlinedIcon from '@mui/icons-material/MilitaryTechOutlined';
 import EmojiEventsOutlinedIcon from '@mui/icons-material/EmojiEventsOutlined';
+import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import {
   typography,
   TypographyProps,
@@ -40,19 +41,27 @@ const CardBody = styled.div<TypographyProps & LayoutProps & SpaceProps>`
   ${space};
 `;
 
-const Price = styled.span`
-  font-size: 1.3rem;
+const ContactMeLink = styled.a`
+  font-size: 1rem;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  margin-top: -0.1rem;
+  text-decoration: none;
+  & svg {
+    font-size: 1.3rem;
+  }
   ${css({
     fontFamily: 'body',
     fontWeight: 700,
     color: 'primary',
   })}
 `;
+
 const SocialMediaPacks = () => {
   const Packs = [
     {
       title: 'Bronze Pack',
-      price: '$1,000',
       icon: <AutoGraphOutlinedIcon />,
       iconColor: '#CD7F32',
       assets: [
@@ -63,7 +72,6 @@ const SocialMediaPacks = () => {
     },
     {
       title: 'Gold Pack',
-      price: '$3,000',
       icon: <EmojiEventsOutlinedIcon />,
       iconColor: '#FFD700',
       assets: [
@@ -75,7 +83,6 @@ const SocialMediaPacks = () => {
     },
     {
       title: 'Diamond Pack',
-      price: '$6,000',
       icon: <MilitaryTechOutlinedIcon />,
       iconColor: '#B9F2FF',
       assets: [
@@ -93,7 +100,7 @@ const SocialMediaPacks = () => {
 
   return (
     <Layout title="Social Media Packs">
-      <Box minHeight="calc(100vh - 4rem)" pt="8">
+      <Box minHeight="calc(100vh - 4rem)" pt="8" pb="8">
         <Flex
           justifyContent="center"
           alignItems="center"
@@ -121,7 +128,10 @@ const SocialMediaPacks = () => {
               Contact Me Now
             </Button>
           </Flex>
-          <Flex justifyContent="center" flexDirection={['column', null, 'row']}>
+          <Flex
+            justifyContent="center"
+            flexDirection={['column', 'column', 'column', 'row']}
+          >
             {Packs.map((i, idx) => (
               <Flex
                 border="0"
@@ -129,8 +139,8 @@ const SocialMediaPacks = () => {
                 borderColor="grey"
                 p="2rem"
                 flexDirection="column"
-                mx={['0rem', null, idx % 2 === 0 ? '2rem' : '0rem']}
-                my={['1rem', null, '0rem']}
+                mx={['0.8rem', 0, '0.5rem']}
+                my={['1rem', null, '1rem']}
                 key={i.title}
               >
                 <IconContainer color={i.iconColor}>{i.icon}</IconContainer>
@@ -138,7 +148,9 @@ const SocialMediaPacks = () => {
                   <Header as="h3" my="0.5rem">
                     {i.title.toUpperCase()}
                   </Header>
-                  <Price>{i.price} monthly</Price>
+                  <ContactMeLink href="/contact">
+                    Get a Quote <KeyboardArrowRightIcon />
+                  </ContactMeLink>
                   <CardBody>
                     <ul>
                       {i.assets.map((j) => (
